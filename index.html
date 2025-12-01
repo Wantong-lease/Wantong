@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Wantong 個人信用貸</title>
 
 <style>
@@ -22,17 +22,13 @@
 
   .container { max-width:900px; margin:auto; padding:20px; }
 
-  /* Banner */
-  .banner {
-    margin-top:20px;
-  }
   .banner img {
     width:100%;
     border-radius:12px;
-    display:block;
+    margin-top:20px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.08);
   }
 
-  /* Sections */
   section {
     background:white;
     border-radius:10px;
@@ -43,7 +39,6 @@
 
   h2 { margin-top:0; }
 
-  /* Inputs */
   .calc-group { margin-bottom:16px; }
   input {
     width:100%; padding:12px;
@@ -51,7 +46,16 @@
     font-size:1rem;
   }
 
-  /* Result Box */
+  button {
+    padding:12px 20px;
+    background:#2f9fff;
+    border:none;
+    color:white;
+    border-radius:6px;
+    font-size:1rem;
+    font-weight:700;
+  }
+
   .result-box {
     background:#f1f8ff;
     padding:16px;
@@ -63,17 +67,6 @@
 
   footer {
     text-align:center; color:#888; font-size:0.9rem; padding:40px 0;
-  }
-
-  .btn-primary {
-    padding:12px 20px;
-    background:#2f9fff;
-    border:none;
-    color:white;
-    border-radius:6px;
-    font-size:1rem;
-    font-weight:700;
-    cursor:pointer;
   }
 </style>
 </head>
@@ -106,15 +99,15 @@
 
 <div class="container">
 
-  <!-- Banner（請把 banner.png 放到 GitHub Pages）-->
+  <!-- Banner -->
   <div class="banner">
-    <img src="banner.png" alt="Wantong Banner">
+    <img src="assets/banner.png" alt="Wantong Banner">
   </div>
 
   <!-- 試算器 -->
   <section id="calc">
     <h2>Wantong 個人信用貸試算</h2>
-    <p>年利率固定 <strong>16%</strong>　｜　手續費 <strong>6%</strong></p>
+    <p>年利率固定 <strong>16%</strong>、手續費 <strong>6%</strong></p>
 
     <div class="calc-group">
       <label>借款金額（NT$）</label>
@@ -126,9 +119,7 @@
       <input id="months" type="number" placeholder="例如 12、24、36">
     </div>
 
-    <button class="btn-primary" onclick="calculate()">
-      開始試算
-    </button>
+    <button onclick="calculate()">開始試算</button>
 
     <div id="result" class="result-box" style="display:none; margin-top:20px;"></div>
   </section>
@@ -136,8 +127,8 @@
   <!-- FAQ -->
   <section id="faq">
     <h2>常見問題</h2>
-    <p><strong>Q：利率是多少？</strong><br>固定年利率 16%，另收手續費 6%。</p>
-    <p><strong>Q：多久可以撥款？</strong><br>最快 1 天即可撥款。</p>
+    <p><strong>Q：利率是多少？</strong><br>固定年利率 16%，手續費 6%。</p>
+    <p><strong>Q：撥款時間？</strong><br>核准後最快 1 天撥款。</p>
   </section>
 
   <footer>
@@ -150,7 +141,7 @@
 function calculate() {
   const amount = Number(document.getElementById("loanAmount").value);
   const months = Number(document.getElementById("months").value);
-  const rate = 0.16 / 12;
+  const rate = 0.16 / 12; 
   const fee = amount * 0.06;
 
   if (!amount || !months) {
