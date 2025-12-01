@@ -3,87 +3,55 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Wantong — 線上貸款方案</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<title>Wantong 線上貸款方案</title>
 
 <style>
-  :root{
-    --brand: #2f9fff; 
-    --brand-600:#1e8eed;
-    --muted: #6b7280;
-    --bg: #f7fbff;
-    --card-bg: #ffffff;
-    --glass: rgba(47,159,255,0.08);
-    --radius: 12px;
-    --maxw: 1100px;
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    font-family:"Inter","Microsoft JhengHei",Arial;
-    color:#111827;
-    background: linear-gradient(180deg,var(--bg),#ffffff 30%);
-  }
-  header{
-    position:sticky; top:0;
-    backdrop-filter: blur(6px);
-    background: rgba(255,255,255,0.8);
-    border-bottom: 1px solid rgba(16,24,40,0.04);
-    z-index:50;
-  }
-  .nav{max-width:var(--maxw); margin:auto; display:flex; justify-content:space-between; padding:14px 20px; align-items:center}
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#0f1724}
-  .brand svg{width:40px;height:40px}
-  nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
-  nav a{color:var(--muted);text-decoration:none;font-weight:600}
-  .cta{padding:10px 16px;background:var(--brand);color:white;border-radius:10px;font-weight:700;text-decoration:none}
+  body { margin:0; font-family:"Microsoft JhengHei",sans-serif; background:#f6fbff; color:#222; }
 
-  .hero{max-width:var(--maxw);margin:36px auto;padding:48px 20px;display:flex;gap:28px;align-items:center}
-  .kicker{background:var(--glass);padding:8px 12px;border-radius:999px;margin-bottom:18px;color:var(--brand-600);font-weight:600;display:inline-block}
-  h1{font-size:2.6rem;margin:0 0 14px;color:#0b1220}
-  p.lead{color:var(--muted);font-size:1.05rem;margin:0 0 22px}
-  .btn-primary{
-    background: linear-gradient(180deg,var(--brand),var(--brand-600));
-    color:white;padding:14px 20px;border-radius:12px;text-decoration:none;font-weight:700;
+  header {
+    background:white;
+    border-bottom:1px solid #e5eaf0;
+    padding:14px 0;
+    position:sticky;top:0;z-index:30;
   }
-  .btn-ghost{
-    border:1px solid rgba(11,20,32,0.06);padding:12px 16px;border-radius:10px;color:var(--muted);font-weight:600;text-decoration:none
+  .nav { max-width:900px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:0 20px; }
+  .brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:#111; font-weight:700; }
+
+  nav a { margin-left:18px; text-decoration:none; color:#6b7585; font-weight:600; }
+  nav a:hover { color:#2f9fff; }
+
+  .btn-primary {
+    background:#2f9fff; color:white; padding:12px 22px;
+    border-radius:6px; text-decoration:none; font-weight:700; display:inline-block;
   }
 
-  .hero-right{
-    width:360px;background:white;padding:18px;border-radius:14px;
-    box-shadow:0 8px 30px rgba(12,20,30,0.06);border:1px solid rgba(10,20,40,0.03)
+  .container { max-width:900px; margin:auto; padding:20px; }
+
+  /* Sections */
+  section {
+    background:white;
+    border-radius:10px;
+    padding:24px;
+    margin:26px 0;
+    border:1px solid #e8eff5;
   }
-  .small-label{font-size:0.85rem;color:var(--muted);margin-bottom:6px;display:block}
+  h2 { margin-top:0; }
 
-  section{max-width:var(--maxw);margin:36px auto;padding:28px 20px;}
-  .features{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  .card{background:white;border-radius:12px;padding:22px;text-align:center;box-shadow:0 8px 20px rgba(14,20,30,0.04)}
-  .icon-round{width:64px;height:64px;background:rgba(47,159,255,0.06);border-radius:12px;margin:auto;margin-bottom:12px;display:flex;align-items:center;justify-content:center}
+  /* List */
+  .plan-list { list-style:none; padding:0; }
+  .plan-list li { padding:8px 0; border-bottom:1px solid #eee; }
 
-  .plan-row{display:flex;gap:18px}
-  .plan-side{width:320px;border-radius:12px;padding:18px;background:white;box-shadow:0 8px 20px rgba(14,20,30,0.03)}
-
-  .steps{display:flex;gap:18px}
-  .step{flex:1;background:white;padding:18px;border-radius:12px;text-align:center;box-shadow:0 6px 18px rgba(12,20,30,0.04)}
-  .step .num{width:56px;height:56px;border-radius:50%;background:var(--brand);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;margin:auto;margin-bottom:10px}
-
-  .faq-item{background:rgba(15,23,36,0.02);padding:14px;border-radius:10px;margin-bottom:12px}
-
-  footer{background:#0b1220;color:white;padding:34px 20px;margin-top:36px}
-  .foot-inner{max-width:var(--maxw);margin:auto;display:flex;justify-content:space-between;align-items:center}
-
-  @media (max-width:900px){
-    .hero{flex-direction:column}
-    .features{grid-template-columns:repeat(2,1fr)}
-    .plan-row{flex-direction:column}
+  /* Form */
+  .form-group { margin-bottom:14px; }
+  input, select {
+    width:100%; padding:10px;
+    border:1px solid #ccc; border-radius:6px; font-size:1rem;
   }
-  @media (max-width:500px){
-    nav ul{display:none}
-    .features{grid-template-columns:1fr}
-    h1{font-size:1.9rem}
+
+  footer {
+    text-align:center; color:#888; font-size:0.9rem; padding:40px 0;
   }
+
 </style>
 </head>
 
@@ -92,174 +60,83 @@
 <header>
   <div class="nav">
     <a class="brand" href="#">
-      <svg viewBox="0 0 100 100">
+      <!-- Logo -->
+      <svg width="36" viewBox="0 0 100 100">
         <defs>
-          <linearGradient id="g" x1="0" x2="1">
-            <stop offset="0" stop-color="#aee2ff" />
+          <linearGradient id="wcolor" x1="0" x2="1">
+            <stop offset="0" stop-color="#bfe7ff" />
             <stop offset="1" stop-color="#2f9fff" />
           </linearGradient>
         </defs>
-        <rect width="100" height="100" rx="18" fill="url(#g)"></rect>
-        <path d="M20 65 L35 30 L50 65 L65 30 L80 65" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+        <rect width="100" height="100" rx="18" fill="url(#wcolor)"/>
+        <path d="M20 65 L35 30 L50 65 L65 30 L80 65"
+          fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
       </svg>
-      <div>
-        <div style="font-weight:700">Wantong</div>
-        <div style="font-size:12px;color:#526070">線上貸款服務</div>
-      </div>
+      Wantong
     </a>
 
     <nav>
-      <ul>
-        <li><a href="#features">特色</a></li>
-        <li><a href="#plan">方案</a></li>
-        <li><a href="#steps">流程</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
+      <a href="#intro">簡介</a>
+      <a href="#plan">方案</a>
+      <a href="#apply">申請</a>
+      <a href="#faq">FAQ</a>
     </nav>
-
-    <a class="cta" href="#apply">立即申請</a>
   </div>
 </header>
 
-<main>
-  <section class="hero">
-    <div class="hero-left">
-      <div class="kicker">Wantong 線上貸款</div>
-      <h1>線上申請 · 快速核貸 · 彈性還款</h1>
-      <p class="lead">最簡單的貸款流程，清爽介面，Bankee 風格呈現。</p>
+<div class="container">
 
-      <div style="display:flex;gap:12px">
-        <a class="btn-primary" href="#apply">立即申請</a>
-        <a class="btn-ghost" href="#plan">查看方案</a>
-      </div>
-    </div>
-
-    <div class="hero-right">
-      <div style="font-weight:800;margin-bottom:6px">快速試算器</div>
-
-      <label class="small-label">借款金額</label>
-      <input id="amount" type="range" min="30000" max="1000000" value="30000" step="1000" />
-      <div style="display:flex;justify-content:space-between;margin-top:6px">
-        <span class="small-label">目前金額</span>
-        <span id="amountDisplay" style="font-weight:700">NT$ 30,000</span>
-      </div>
-
-      <label class="small-label" style="margin-top:14px">期數</label>
-      <select id="term" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;">
-        <option value="12">12 期</option>
-        <option value="24">24 期</option>
-        <option value="36">36 期</option>
-        <option value="48">48 期</option>
-        <option value="60">60 期</option>
-      </select>
-
-      <div style="display:flex;justify-content:space-between;margin-top:18px">
-        <span style="color:var(--muted)">每月應繳</span>
-        <span id="est" style="font-weight:700;font-size:1.1rem">NT$ 0</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="features">
-    <h2 class="text-center" style="text-align:center;margin-bottom:22px">方案特色</h2>
-    <div class="features">
-      <div class="card"><div class="icon-round">💰</div><h3>低利率</h3><div class="muted">透明費率</div></div>
-      <div class="card"><div class="icon-round">⚡</div><h3>快速核貸</h3><div class="muted">最快 1 日</div></div>
-      <div class="card"><div class="icon-round">📱</div><h3>全程線上</h3><div class="muted">免臨櫃</div></div>
-      <div class="card"><div class="icon-round">🔄</div><h3>彈性還款</h3><div class="muted">多種期數</div></div>
-    </div>
+  <section id="intro">
+    <h2>Wantong 線上貸款方案</h2>
+    <p>以最透明、簡單的方式協助你取得所需資金。全程線上申請，最快 1 天核貸，不需臨櫃，流程清楚易懂。</p>
+    <a class="btn-primary" href="#apply">立即申請</a>
   </section>
 
   <section id="plan">
-    <h2 style="text-align:center;margin-bottom:18px">方案內容</h2>
-
-    <div class="plan-row">
-      <div class="card" style="flex:1">
-        <h3 style="margin-top:0">詳細說明</h3>
-        <ul style="color:var(--muted);line-height:1.8">
-          <li>金額範圍：30,000 – 1,000,000</li>
-          <li>利率：1.8% – 6.5%</li>
-          <li>期數：6–60 期</li>
-          <li>申請資料簡單</li>
-        </ul>
-      </div>
-
-      <div class="plan-side">
-        <h3>立即申請</h3>
-        <form id="apply" onsubmit="handleApply(event)">
-          <label class="small-label">姓名</label>
-          <input id="name" type="text" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;margin-bottom:10px" />
-
-          <label class="small-label">手機</label>
-          <input id="phone" type="tel" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;margin-bottom:10px" />
-
-          <label class="small-label">借款金額</label>
-          <input id="amountForm" type="number" value="30000" min="30000" max="1000000" step="1000"
-                 style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;margin-bottom:14px" />
-
-          <button class="btn-primary" style="width:100%" type="submit">送出申請</button>
-        </form>
-      </div>
-    </div>
+    <h2>方案內容</h2>
+    <ul class="plan-list">
+      <li><strong>借款金額：</strong>30,000 – 1,000,000</li>
+      <li><strong>利率範圍：</strong>1.8% – 6.5%</li>
+      <li><strong>還款期數：</strong>6 – 60 期</li>
+      <li><strong>申請方式：</strong>全程線上，不需臨櫃</li>
+      <li><strong>核貸速度：</strong>最快 1 天</li>
+    </ul>
   </section>
 
-  <section id="steps">
-    <h2 style="text-align:center;margin-bottom:18px">申請流程</h2>
-    <div class="steps">
-      <div class="step"><div class="num">1</div>填寫資料</div>
-      <div class="step"><div class="num">2</div>上傳文件</div>
-      <div class="step"><div class="num">3</div>審核</div>
-      <div class="step"><div class="num">4</div>撥款</div>
-    </div>
+  <section id="apply">
+    <h2>線上申請</h2>
+    <form onsubmit="event.preventDefault(); alert('表單已送出');">
+      <div class="form-group">
+        <label>姓名</label>
+        <input type="text" required>
+      </div>
+
+      <div class="form-group">
+        <label>手機</label>
+        <input type="tel" required>
+      </div>
+
+      <div class="form-group">
+        <label>借款金額 (NT$)</label>
+        <input type="number" min="30000" max="1000000" required>
+      </div>
+
+      <button class="btn-primary" type="submit">送出申請</button>
+    </form>
   </section>
 
   <section id="faq">
-    <h2 style="text-align:center;margin-bottom:18px">常見問題</h2>
-    <div class="faq-item"><div>Q：多久核貸？</div><div class="muted">最快 1 天。</div></div>
-    <div class="faq-item"><div>Q：需要什麼資料？</div><div class="muted">身份證＋必要財力證明。</div></div>
+    <h2>常見問題</h2>
+    <p><strong>Q：核貸需要多久？</strong><br>最快 1 天，通常 1–3 個工作天。</p>
+    <p><strong>Q：需要哪些文件？</strong><br>身份證正本＋基本財力證明。</p>
+    <p><strong>Q：如何撥款？</strong><br>核准後直接匯入你的銀行帳戶。</p>
   </section>
-</main>
 
-<footer>
-  <div class="foot-inner">
-    <div>Wantong 線上貸款服務</div>
-    <div>© <span id="year"></span> Wantong</div>
-  </div>
-</footer>
+  <footer>
+    © 2025 Wantong. All Rights Reserved.
+  </footer>
 
-<script>
-  const amount = document.getElementById("amount");
-  const amountDisplay = document.getElementById("amountDisplay");
-  const term = document.getElementById("term");
-  const est = document.getElementById("est");
-  const amountForm = document.getElementById("amountForm");
+</div>
 
-  function formatMoney(n){
-    return "NT$ " + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-
-  function calcEst(){
-    const principal = Number(amount.value);
-    const months = Number(term.value);
-    const apr = 0.06;
-    const r = apr / 12;
-    const payment = Math.round(principal * r * Math.pow(1+r,months) / (Math.pow(1+r,months)-1));
-    est.textContent = formatMoney(payment);
-  }
-
-  amount.addEventListener("input",()=>{
-    const v = Number(amount.value);
-    amountDisplay.textContent = formatMoney(v);
-    amountForm.value = v;
-    calcEst();
-  });
-
-  amountForm.addEventListener("input",()=>{
-    let v = Number(amountForm.value);
-    if(v < 30000) v = 30000;
-    if(v > 1000000) v = 1000000;
-
-    amountForm.value = v;
-    amount.value = v;
-    amountDisplay.textContent = formatMoney(v);
-    calcE
+</body>
+</html>
