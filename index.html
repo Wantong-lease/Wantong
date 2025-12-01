@@ -11,10 +11,9 @@
   header {
     background:white;
     border-bottom:1px solid #e5eaf0;
-    padding:12px 0;
+    padding:10px 0;
     position:sticky;top:0;z-index:30;
   }
-
   .nav {
     max-width:900px;
     margin:auto;
@@ -24,16 +23,20 @@
     padding:0 20px;
   }
 
-  /* 🔵 大Logo 180px */
+  /* Logo */
   .brand img {
-    height:180px;
+    height:60px;
     width:auto;
   }
 
   .brand {
     display:flex;
     align-items:center;
+    gap:10px;
     text-decoration:none;
+    color:#111;
+    font-weight:700;
+    font-size:1.4rem;
   }
 
   nav a { margin-left:18px; text-decoration:none; color:#6b7585; font-weight:600; }
@@ -88,7 +91,10 @@
     text-align:center; color:#888; font-size:0.9rem; padding:40px 0;
   }
 
-  /* 右下角 Line 按鈕 */
+  /* ————————————————————————————————
+       新版 LINE 氣泡按鈕（含圖示＋動畫）
+     ———————————————————————————————— */
+
   .line-float {
     position:fixed;
     right:18px;
@@ -99,17 +105,44 @@
     border-radius:50px;
     font-size:1.1rem;
     font-weight:700;
-    box-shadow:0 4px 16px rgba(0,0,0,0.2);
+    display:flex;
+    align-items:center;
+    gap:10px;
     text-decoration:none;
+    box-shadow:0 4px 16px rgba(0,0,0,0.25);
+    z-index:99;
+
+    animation: floatUpDown 3s ease-in-out infinite,
+               shake 5s infinite;
   }
 
-  /* 📱 手機優化 */
-  @media (max-width:600px) {
-    .brand img { height:90px; } /* 手機版縮小 */
-    nav { display:none; }
-    h2 { font-size:1.3rem; }
-    button { width:100%; }
+  .line-icon {
+    width:28px;
+    height:28px;
   }
+
+  @keyframes floatUpDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+  }
+
+  @keyframes shake {
+    0%, 90%, 100% { transform: translateX(0); }
+    92% { transform: translateX(-2px); }
+    94% { transform: translateX(2px); }
+    96% { transform: translateX(-2px); }
+    98% { transform: translateX(2px); }
+  }
+
+  /* 手機版 */
+  @media (max-width:600px) {
+    .brand img { height:45px; }
+    nav { display:none; }
+    .line-float { padding:12px 16px; font-size:1rem; right:14px; bottom:14px; }
+    .line-icon { width:24px; height:24px; }
+  }
+
 </style>
 </head>
 
@@ -168,9 +201,10 @@
 
 </div>
 
-<!-- 固定右下角 Line -->
+<!-- 浮動 LINE 按鈕 -->
 <a href="https://line.me/ti/p/xxxxx" target="_blank" class="line-float">
-  Line 立即申請
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" class="line-icon" alt="LINE">
+  立即諮詢
 </a>
 
 <script>
