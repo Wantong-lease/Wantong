@@ -11,13 +11,33 @@
   header {
     background:white;
     border-bottom:1px solid #e5eaf0;
-    padding:14px 0;
-    position:sticky;
-    top:0;
-    z-index:30;
+    padding:10px 0;
+    position:sticky;top:0;z-index:30;
   }
-  .nav { max-width:900px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:0 20px; }
-  .brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:#111; font-weight:700; }
+  .nav {
+    max-width:900px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 20px;
+  }
+
+  /* 新 Logo 圖片 */
+  .brand img {
+    height:42px;
+    width:auto;
+  }
+
+  .brand {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:#111;
+    font-weight:700;
+    font-size:1.4rem;
+  }
 
   nav a { margin-left:18px; text-decoration:none; color:#6b7585; font-weight:600; }
   nav a:hover { color:#2f9fff; }
@@ -56,7 +76,6 @@
     border-radius:6px;
     font-size:1rem;
     font-weight:700;
-    width:100%;
   }
 
   .result-box {
@@ -72,42 +91,27 @@
     text-align:center; color:#888; font-size:0.9rem; padding:40px 0;
   }
 
-  /* --- 右下角 LINE 浮動按鈕 --- */
-  .floating-line {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #06C755;
-    color: white;
-    padding: 14px 18px;
-    border-radius: 50px;
-    font-size: 1.05rem;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .floating-line:hover {
-    background:#04b14b;
-  }
-  .floating-line img {
-    width: 22px;
-    height: 22px;
+  /* 右下角 Line 按鈕 */
+  .line-float {
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    background:#06c755;
+    color:white;
+    padding:14px 20px;
+    border-radius:50px;
+    font-size:1.1rem;
+    font-weight:700;
+    box-shadow:0 4px 16px rgba(0,0,0,0.2);
+    text-decoration:none;
   }
 
-  /* 手機版微調 */
-  @media (max-width: 600px) {
-    .nav { padding: 0 12px; }
-    nav a { margin-left: 10px; font-size: 0.9rem; }
-    .floating-line {
-      bottom: 15px;
-      right: 15px;
-      padding: 12px 14px;
-      font-size: 0.95rem;
-    }
+  /* 手機優化 */
+  @media (max-width:600px) {
+    .brand img { height:34px; }
+    nav { display:none; }
+    h2 { font-size:1.3rem; }
+    button { width:100%; }
   }
 </style>
 </head>
@@ -117,17 +121,7 @@
 <header>
   <div class="nav">
     <a class="brand" href="#">
-      <svg width="36" viewBox="0 0 100 100">
-        <defs>
-          <linearGradient id="wcolor" x1="0" x2="1">
-            <stop offset="0" stop-color="#bfe7ff" />
-            <stop offset="1" stop-color="#2f9fff" />
-          </linearGradient>
-        </defs>
-        <rect width="100" height="100" rx="18" fill="url(#wcolor)"/>
-        <path d="M20 65 L35 30 L50 65 L65 30 L80 65"
-          fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
-      </svg>
+      <img src="logo.png" alt="Wantong Logo">
       Wantong
     </a>
 
@@ -178,17 +172,16 @@
 
 </div>
 
-<!-- 浮動 LINE 按鈕 —— 將以下網址換成你的 LINE 官方帳號 -->
-<a href="https://line.me/ti/p/~your_line_id" target="_blank" class="floating-line">
-  <img src="https://scdn.line-apps.com/n/line_regulation/files/favicon_96x96.png" />
-  立即申請
+<!-- LINE 右下角按鈕 -->
+<a href="https://line.me/ti/p/xxxxx" target="_blank" class="line-float">
+  Line 立即申請
 </a>
 
 <script>
 function calculate() {
   const amount = Number(document.getElementById("loanAmount").value);
   const months = Number(document.getElementById("months").value);
-  const rate = 0.16 / 12;
+  const rate = 0.16 / 12; 
   const fee = amount * 0.06;
 
   if (!amount || !months) {
