@@ -2,20 +2,29 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wantong 個人信用貸</title>
 
 <style>
-  body { margin:0; font-family:"Microsoft JhengHei",sans-serif; background:#f6fbff; color:#222; }
+  body {
+    margin:0;
+    font-family:"Microsoft JhengHei", sans-serif;
+    background:#f4f9ff;
+    color:#1b2b44;
+  }
 
+  /* ------------------ Header ------------------ */
   header {
     background:white;
-    border-bottom:1px solid #e5eaf0;
-    padding:10px 0;
-    position:sticky;top:0;z-index:30;
+    border-bottom:1px solid #dce6f5;
+    padding:14px 0;
+    position:sticky;
+    top:0;
+    z-index:50;
   }
+
   .nav {
-    max-width:900px;
+    max-width:1100px;
     margin:auto;
     display:flex;
     justify-content:space-between;
@@ -23,94 +32,140 @@
     padding:0 20px;
   }
 
-  /* 新 Logo 圖片 */
   .brand img {
-    height:42px;
+    height:120px;   /* ★ 大Logo */
     width:auto;
   }
 
   .brand {
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:12px;
     text-decoration:none;
-    color:#111;
-    font-weight:700;
-    font-size:1.4rem;
+    color:#1b2b44;
+    font-weight:800;
+    font-size:1.8rem;
   }
 
-  nav a { margin-left:18px; text-decoration:none; color:#6b7585; font-weight:600; }
-  nav a:hover { color:#2f9fff; }
+  nav a {
+    margin-left:22px;
+    text-decoration:none;
+    color:#3f536e;
+    font-weight:600;
+    font-size:1.05rem;
+  }
+  nav a:hover { color:#007bff; }
 
-  .container { max-width:900px; margin:auto; padding:20px; }
+  /* ------------------ Layout ------------------ */
+  .container {
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+  }
 
+  /* ------------------ Banner ------------------ */
   .banner img {
     width:100%;
-    border-radius:12px;
+    border-radius:18px;
     margin-top:20px;
-    box-shadow:0 4px 16px rgba(0,0,0,0.08);
+    box-shadow:0 6px 20px rgba(0,0,0,0.08);
   }
 
+  /* ------------------ Section Card ------------------ */
   section {
     background:white;
-    border-radius:10px;
-    padding:24px;
-    margin:26px 0;
-    border:1px solid #e8eff5;
+    border-radius:14px;
+    padding:30px;
+    margin:30px 0;
+    border:1px solid #e5edf7;
+    box-shadow:0 4px 14px rgba(0,0,0,0.04);
   }
 
-  h2 { margin-top:0; }
+  h2 {
+    margin-top:0;
+    font-size:1.7rem;
+    font-weight:800;
+    color:#123360;
+  }
 
-  .calc-group { margin-bottom:16px; }
+  /* ------------------ Form ------------------ */
+  .calc-group {
+    margin-bottom:18px;
+  }
+
+  label {
+    font-weight:700;
+  }
+
   input {
-    width:100%; padding:12px;
-    border:1px solid #ccc; border-radius:6px;
+    width:100%;
+    padding:14px;
+    border:1px solid #b8c7dd;
+    border-radius:8px;
     font-size:1rem;
+    margin-top:6px;
   }
 
   button {
-    padding:12px 20px;
-    background:#2f9fff;
+    padding:14px 24px;
+    background:#007bff;
     border:none;
     color:white;
-    border-radius:6px;
-    font-size:1rem;
-    font-weight:700;
-  }
-
-  .result-box {
-    background:#f1f8ff;
-    padding:16px;
     border-radius:8px;
-    font-size:1.2rem;
-    color:#0a4ca3;
+    font-size:1.1rem;
     font-weight:700;
+    cursor:pointer;
+    transition:0.2s;
+  }
+  button:hover { background:#005fcc; }
+
+  /* ------------------ Result Box ------------------ */
+  .result-box {
+    background:#e9f3ff;
+    padding:20px;
+    border-radius:10px;
+    font-size:1.25rem;
+    color:#0a4fa8;
+    font-weight:800;
+    border:1px solid #c7dfff;
   }
 
+  /* ------------------ FAQ ------------------ */
+  #faq p {
+    line-height:1.6;
+    margin-bottom:12px;
+  }
+
+  /* ------------------ Footer ------------------ */
   footer {
-    text-align:center; color:#888; font-size:0.9rem; padding:40px 0;
+    text-align:center;
+    color:#7b8da8;
+    font-size:0.9rem;
+    padding:45px 0;
   }
 
-  /* 右下角 Line 按鈕 */
+  /* ------------------ LINE Floating Button ------------------ */
   .line-float {
     position:fixed;
     right:18px;
     bottom:18px;
     background:#06c755;
     color:white;
-    padding:14px 20px;
+    padding:16px 24px;
     border-radius:50px;
-    font-size:1.1rem;
-    font-weight:700;
-    box-shadow:0 4px 16px rgba(0,0,0,0.2);
+    font-size:1.2rem;
+    font-weight:800;
+    box-shadow:0 6px 20px rgba(0,0,0,0.25);
     text-decoration:none;
   }
 
-  /* 手機優化 */
+  /* ------------------ Mobile ------------------ */
   @media (max-width:600px) {
-    .brand img { height:34px; }
+    .brand img { height:85px; }
+    .brand { font-size:1.4rem; }
     nav { display:none; }
-    h2 { font-size:1.3rem; }
+    section { padding:22px; }
+    h2 { font-size:1.45rem; }
     button { width:100%; }
   }
 </style>
@@ -121,7 +176,7 @@
 <header>
   <div class="nav">
     <a class="brand" href="#">
-<img src="logo.png" alt="Wantong Logo" style="width:120px;">      Wantong
+      <img src="logo.png" alt="Wantong Logo">
     </a>
 
     <nav>
@@ -138,7 +193,7 @@
     <img src="banner.png" alt="banner" />
   </div>
 
-  <!-- 試算器 -->
+  <!-- Calculator -->
   <section id="calc">
     <h2>Wantong 個人信用貸試算</h2>
     <p>年利率固定 <strong>16%</strong>、手續費 <strong>6%</strong></p>
@@ -155,7 +210,7 @@
 
     <button onclick="calculate()">開始試算</button>
 
-    <div id="result" class="result-box" style="display:none; margin-top:20px;"></div>
+    <div id="result" class="result-box" style="display:none;margin-top:20px;"></div>
   </section>
 
   <!-- FAQ -->
@@ -171,7 +226,7 @@
 
 </div>
 
-<!-- LINE 右下角按鈕 -->
+<!-- LINE Button -->
 <a href="https://line.me/ti/p/xxxxx" target="_blank" class="line-float">
   Line 立即申請
 </a>
@@ -180,7 +235,7 @@
 function calculate() {
   const amount = Number(document.getElementById("loanAmount").value);
   const months = Number(document.getElementById("months").value);
-  const rate = 0.16 / 12; 
+  const rate = 0.16 / 12;
   const fee = amount * 0.06;
 
   if (!amount || !months) {
