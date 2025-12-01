@@ -3,93 +3,55 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Wantong 個人信用貸 — 試算</title>
+<title>Wantong 線上貸款方案</title>
 
 <style>
-  :root{
-    --brand:#2f9fff;
-    --brand-dark:#2376e5;
-    --bg-light:#eef6ff;
-    --card:#ffffff;
-    --muted:#6b7285;
-    --maxw:1100px;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:"Microsoft JhengHei",sans-serif;background:var(--bg-light);color:#172033;line-height:1.6}
+  body { margin:0; font-family:"Microsoft JhengHei",sans-serif; background:#f6fbff; color:#222; }
 
-  header{
+  header {
     background:white;
-    border-bottom:1px solid #e6edf6;
-    position:sticky; top:0; z-index:50;
+    border-bottom:1px solid #e5eaf0;
+    padding:14px 0;
+    position:sticky;top:0;z-index:30;
   }
-  .nav{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
-  .brand{display:flex;align-items:center;gap:12px;color:#0f1724;text-decoration:none;font-weight:800}
-  .brand svg{width:44px;height:44px}
-  nav ul{display:flex;gap:16px;margin:0;padding:0;list-style:none}
-  nav a{color:var(--muted);text-decoration:none;font-weight:600}
-  .cta-small{background:var(--brand);color:white;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700}
+  .nav { max-width:900px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:0 20px; }
+  .brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:#111; font-weight:700; }
 
-  /* Banner (style C with illustration) */
-  .hero{
-    max-width:1200px;
-    margin:26px auto;
-    background: linear-gradient(180deg,#2f9fff 0%, #1e8eed 100%);
-    border-radius:18px;
-    color:white;
-    display:flex;
-    gap:24px;
-    align-items:center;
-    padding:32px;
-    overflow:hidden;
-  }
-  .hero-inner{max-width:720px}
-  .kicker{
-    display:inline-block;
-    background:rgba(255,255,255,0.12);
-    padding:8px 12px;border-radius:999px;font-weight:700;margin-bottom:12px;
-  }
-  .hero h1{font-size:2rem;margin:6px 0 12px;line-height:1.1}
-  .hero p.lead{font-size:1.05rem;color:rgba(255,255,255,0.95);margin:0 0 16px}
-  .hero .meta{font-weight:700; margin-bottom:18px}
-  .hero .meta small{display:inline-block;color:rgba(255,255,255,0.95);opacity:0.95;margin-left:8px;font-weight:600}
-  .hero .btn-cta{
-    display:inline-flex; align-items:center; gap:10px;
-    background:white; color:var(--brand); padding:12px 18px; border-radius:12px; font-weight:800; text-decoration:none;
-    box-shadow:0 10px 30px rgba(16,24,40,0.12);
+  nav a { margin-left:18px; text-decoration:none; color:#6b7585; font-weight:600; }
+  nav a:hover { color:#2f9fff; }
+
+  .btn-primary {
+    background:#2f9fff; color:white; padding:12px 22px;
+    border-radius:6px; text-decoration:none; font-weight:700; display:inline-block;
   }
 
-  /* Illustration container (right side) */
-  .hero-art{flex:1; display:flex; align-items:center; justify-content:center; min-width:280px}
-  .hero-art svg{max-width:100%; height:auto; display:block}
+  .container { max-width:900px; margin:auto; padding:20px; }
 
-  /* Page content */
-  .container{max-width:var(--maxw); margin:20px auto; padding:0 20px}
-  section{background:var(--card); border-radius:12px; padding:20px; margin:20px 0; border:1px solid #e6edf6}
-  h2{margin-top:0;color:#11335a}
-
-  /* Calc */
-  .calc-grid{display:grid; grid-template-columns:1fr 320px; gap:20px; align-items:start}
-  .calc-left{padding:8px}
-  .calc-field{margin-bottom:12px}
-  input[type="number"], select{
-    width:100%; padding:12px; border-radius:10px; border:1px solid #d6e7ff; font-size:16px;
+  /* Sections */
+  section {
+    background:white;
+    border-radius:10px;
+    padding:24px;
+    margin:26px 0;
+    border:1px solid #e8eff5;
   }
-  .calc-action button{
-    width:100%; padding:12px; border-radius:10px; border:none; background:var(--brand); color:white; font-weight:800; font-size:16px;
-    cursor:pointer;
-  }
-  .calc-result{background:#f5fbff;padding:14px;border-radius:10px;border:1px solid #dbf0ff;margin-top:12px}
-  .muted{color:var(--muted)}
+  h2 { margin-top:0; }
 
-  /* Responsive */
-  @media (max-width:900px){
-    .hero{flex-direction:column; text-align:center; padding:20px}
-    .hero-inner{max-width:100%}
-    .calc-grid{grid-template-columns:1fr}
-    .hero-art{order: -1; margin-bottom:12px}
+  /* List */
+  .plan-list { list-style:none; padding:0; }
+  .plan-list li { padding:8px 0; border-bottom:1px solid #eee; }
+
+  /* Form */
+  .form-group { margin-bottom:14px; }
+  input, select {
+    width:100%; padding:10px;
+    border:1px solid #ccc; border-radius:6px; font-size:1rem;
   }
 
-  footer{max-width:var(--maxw);margin:20px auto 60px;padding:20px;text-align:center;color:var(--muted);font-size:14px}
+  footer {
+    text-align:center; color:#888; font-size:0.9rem; padding:40px 0;
+  }
+
 </style>
 </head>
 
@@ -98,176 +60,83 @@
 <header>
   <div class="nav">
     <a class="brand" href="#">
-      <!-- logo -->
-      <svg viewBox="0 0 100 100" aria-hidden="true">
-        <defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#bfe7ff"/><stop offset="1" stop-color="#2f9fff"/></linearGradient></defs>
-        <rect width="100" height="100" rx="18" fill="url(#lg)"></rect>
-        <path d="M20 65 L35 30 L50 65 L65 30 L80 65" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <!-- Logo -->
+      <svg width="36" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="wcolor" x1="0" x2="1">
+            <stop offset="0" stop-color="#bfe7ff" />
+            <stop offset="1" stop-color="#2f9fff" />
+          </linearGradient>
+        </defs>
+        <rect width="100" height="100" rx="18" fill="url(#wcolor)"/>
+        <path d="M20 65 L35 30 L50 65 L65 30 L80 65"
+          fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
       </svg>
-      <span style="font-size:18px">Wantong</span>
+      Wantong
     </a>
 
     <nav>
-      <ul style="display:flex;align-items:center;gap:14px;margin:0;padding:0;list-style:none">
-        <li><a href="#intro">簡介</a></li>
-        <li><a href="#plan">方案</a></li>
-        <li><a href="#calc">試算</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a class="cta-small" href="#calc">立即試算</a></li>
-      </ul>
+      <a href="#intro">簡介</a>
+      <a href="#plan">方案</a>
+      <a href="#apply">申請</a>
+      <a href="#faq">FAQ</a>
     </nav>
   </div>
 </header>
 
-<!-- Banner -->
-<section class="hero" aria-label="Wantong Banner">
-  <div class="hero-inner">
-    <div class="kicker">Wantong 個人信用貸</div>
-    <h1>想知道每月需還多少？<br>立即快速試算月付金額</h1>
-    <p class="lead">固定年利率 <strong>16%</strong> ｜ 手續費 <strong>6%</strong> · 最快 1 天核貸</p>
-    <div class="meta">
-      <span>透明計算、立即顯示</span>
-      <small>※ 試算結果僅供參考，核貸以實際審核為準。</small>
-    </div>
-
-    <a class="hero-cta btn-cta" href="#calc" onclick="document.querySelector('#calc').scrollIntoView({behavior:'smooth',block:'start'});return false;">
-      立即試算月付金額 &nbsp;➜
-    </a>
-  </div>
-
-  <div class="hero-art" aria-hidden="true">
-    <!-- Simple illustrative SVG of a person with phone (clean, friendly) -->
-    <svg viewBox="0 0 360 280" width="360" height="240" xmlns="http://www.w3.org/2000/svg" role="img">
-      <defs>
-        <linearGradient id="bgGrad" x1="0" x2="1"><stop offset="0" stop-color="#5eb0ff"/><stop offset="1" stop-color="#2f9fff"/></linearGradient>
-      </defs>
-
-      <!-- background rounded card -->
-      <rect x="0" y="20" rx="18" ry="18" width="360" height="240" fill="url(#bgGrad)" opacity="0.08"/>
-
-      <!-- body -->
-      <g transform="translate(60,20)">
-        <ellipse cx="120" cy="180" rx="100" ry="70" fill="#fff" opacity="0.06"/>
-        <!-- head -->
-        <circle cx="120" cy="80" r="40" fill="#ffd7b9"/>
-        <!-- hair -->
-        <path d="M80 72 q30 -40 80 -12 q-8 38 -80 24" fill="#1e3f66"/>
-        <!-- torso -->
-        <rect x="70" y="110" rx="18" ry="18" width="100" height="80" fill="#fff"/>
-        <!-- phone -->
-        <rect x="140" y="110" rx="8" ry="8" width="36" height="62" fill="#1e3f66"/>
-        <rect x="145" y="116" rx="3" ry="3" width="26" height="48" fill="#a9d7ff"/>
-        <!-- arm -->
-        <path d="M160 150 q40 10 18 42" stroke="#ffd7b9" stroke-width="18" stroke-linecap="round" fill="none"/>
-      </g>
-    </svg>
-  </div>
-</section>
-
 <div class="container">
 
   <section id="intro">
-    <h2>Wantong 個人信用貸</h2>
-    <p class="muted">固定年利率 <strong>16%</strong>，手續費 <strong>6%</strong>。本頁提供快速試算功能，幫你了解每月應還金額與總負擔。</p>
+    <h2>Wantong 線上貸款方案</h2>
+    <p>以最透明、簡單的方式協助你取得所需資金。全程線上申請，最快 1 天核貸，不需臨櫃，流程清楚易懂。</p>
+    <a class="btn-primary" href="#apply">立即申請</a>
   </section>
 
   <section id="plan">
-    <h2>貸款基本內容</h2>
-    <ul style="list-style:none;padding:0;margin:0;color:var(--muted);">
-      <li style="padding:8px 0;border-bottom:1px solid #f1f7ff"><strong>借款金額：</strong>30,000 – 1,000,000</li>
-      <li style="padding:8px 0;border-bottom:1px solid #f1f7ff"><strong>年利率：</strong>固定 16%（月利率約 1.333%）</li>
-      <li style="padding:8px 0;border-bottom:1px solid #f1f7ff"><strong>手續費：</strong>6%（單次收取）</li>
-      <li style="padding:8px 0;border-bottom:1px solid #f1f7ff"><strong>還款期數：</strong>6 – 60 期</li>
+    <h2>方案內容</h2>
+    <ul class="plan-list">
+      <li><strong>借款金額：</strong>30,000 – 1,000,000</li>
+      <li><strong>利率範圍：</strong>1.8% – 6.5%</li>
+      <li><strong>還款期數：</strong>6 – 60 期</li>
+      <li><strong>申請方式：</strong>全程線上，不需臨櫃</li>
+      <li><strong>核貸速度：</strong>最快 1 天</li>
     </ul>
   </section>
 
-  <section id="calc">
-    <h2>快速試算器</h2>
-
-    <div class="calc-grid">
-      <div class="calc-left">
-        <div class="form-group">
-          <label>貸款金額（元）</label>
-          <input type="number" id="amount" placeholder="例如：300000" min="30000" max="1000000">
-        </div>
-
-        <div class="form-group">
-          <label>貸款期數（月）</label>
-          <select id="months">
-            <option value="12">12 期</option>
-            <option value="24">24 期</option>
-            <option value="36">36 期</option>
-            <option value="48">48 期</option>
-            <option value="60">60 期</option>
-          </select>
-        </div>
-
-        <div class="calc-action">
-          <button id="calcBtn">開始試算</button>
-          <p class="muted" style="margin-top:10px">※ 年利率固定 16%，手續費 6%（手續費將於撥款時一次扣除，本試算為利息 + 月付估算）。</p>
-        </div>
+  <section id="apply">
+    <h2>線上申請</h2>
+    <form onsubmit="event.preventDefault(); alert('表單已送出');">
+      <div class="form-group">
+        <label>姓名</label>
+        <input type="text" required>
       </div>
 
-      <aside style="min-width:260px">
-        <div id="result" class="calc-result" style="display:none">
-          <div style="font-weight:800;color:#11335a;margin-bottom:6px">試算結果</div>
-          <div id="monthly" style="font-size:18px;font-weight:800"></div>
-          <div id="total" style="margin-top:8px;color:var(--muted)"></div>
-          <div id="fee" style="margin-top:8px;color:var(--muted)"></div>
-        </div>
-      </aside>
-    </div>
+      <div class="form-group">
+        <label>手機</label>
+        <input type="tel" required>
+      </div>
+
+      <div class="form-group">
+        <label>借款金額 (NT$)</label>
+        <input type="number" min="30000" max="1000000" required>
+      </div>
+
+      <button class="btn-primary" type="submit">送出申請</button>
+    </form>
   </section>
 
   <section id="faq">
     <h2>常見問題</h2>
-    <p><strong>Q：試算包含手續費嗎？</strong><br>手續費 6% 將在撥款時一次收取，試算結果中會額外顯示手續費金額。</p>
-    <p><strong>Q：試算的利率是真實利率嗎？</strong><br>本頁使用固定年利率 16% 做示意；實際契約與審核條件以合約為準。</p>
+    <p><strong>Q：核貸需要多久？</strong><br>最快 1 天，通常 1–3 個工作天。</p>
+    <p><strong>Q：需要哪些文件？</strong><br>身份證正本＋基本財力證明。</p>
+    <p><strong>Q：如何撥款？</strong><br>核准後直接匯入你的銀行帳戶。</p>
   </section>
+
+  <footer>
+    © 2025 Wantong. All Rights Reserved.
+  </footer>
 
 </div>
 
-<footer>
-  © 2025 Wantong。以上內容僅供參考
-</footer>
-
-<script>
-  // Smooth scroll for internal nav links
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click', function(e){
-      const href = this.getAttribute('href');
-      if (href && href.length>1){
-        e.preventDefault();
-        const el = document.querySelector(href);
-        if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
-      }
-    });
-  });
-
-  // Calculator logic
-  (function(){
-    const calcBtn = document.getElementById('calcBtn');
-    const amountInput = document.getElementById('amount');
-    const monthsSelect = document.getElementById('months');
-    const resultBox = document.getElementById('result');
-    const monthlyEl = document.getElementById('monthly');
-    const totalEl = document.getElementById('total');
-    const feeEl = document.getElementById('fee');
-
-    function formatMoney(n){
-      return 'NT$ ' + Math.round(n).toLocaleString();
-    }
-
-    calcBtn.addEventListener('click', ()=>{
-      const amount = Number(amountInput.value);
-      const months = Number(monthsSelect.value);
-
-      if (!amount || amount < 30000){
-        alert('請輸入借款金額（至少 NT$30,000）');
-        return;
-      }
-
-      // fixed rates
-      const annualRate = 0.16;
-      const monthlyRate = annualRate / 12; // ~0.0133333
-      const
+</body>
+</html>
