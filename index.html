@@ -6,67 +6,96 @@
 <title>Wantong 個人信用貸</title>
 
 <style>
-  body { margin:0; font-family:"Microsoft JhengHei",sans-serif; background:#f6fbff; color:#222; }
+  body {
+    margin:0;
+    font-family:"Microsoft JhengHei", sans-serif;
+    background:#f5f9ff;
+    color:#203040;
+  }
 
+  /* Header */
   header {
     background:white;
-    border-bottom:1px solid #e5eaf0;
+    border-bottom:1px solid #e7eef5;
     padding:14px 0;
-    position:sticky;top:0;z-index:30;
+    position:sticky; top:0; z-index:20;
   }
-  .nav { max-width:900px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:0 20px; }
-  .brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:#111; font-weight:700; }
-
-  nav a { margin-left:18px; text-decoration:none; color:#6b7585; font-weight:600; }
+  .nav {
+    max-width:900px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 20px;
+  }
+  .brand {
+    display:flex; align-items:center; gap:10px;
+    font-weight:800; font-size:1.25rem;
+    color:#2d4469; text-decoration:none;
+  }
+  nav a {
+    margin-left:20px; text-decoration:none;
+    color:#6c7a90; font-weight:600;
+  }
   nav a:hover { color:#2f9fff; }
 
+  /* Layout */
   .container { max-width:900px; margin:auto; padding:20px; }
 
+  /* Banner */
+  .banner {
+    margin-top:20px;
+  }
   .banner img {
     width:100%;
     border-radius:12px;
-    margin-top:20px;
-    box-shadow:0 4px 16px rgba(0,0,0,0.08);
+    box-shadow:0 4px 18px rgba(0,0,0,0.08);
   }
 
+  /* Section */
   section {
     background:white;
-    border-radius:10px;
-    padding:24px;
-    margin:26px 0;
-    border:1px solid #e8eff5;
+    border-radius:12px;
+    padding:28px;
+    margin:28px 0;
+    border:1px solid #e7eff7;
   }
+  h2 { margin-top:0; color:#1d3557; }
 
-  h2 { margin-top:0; }
-
-  .calc-group { margin-bottom:16px; }
+  /* Calculator */
+  .calc-group { margin-bottom:18px; }
   input {
     width:100%; padding:12px;
-    border:1px solid #ccc; border-radius:6px;
+    border:1px solid #cdd7e3; border-radius:8px;
     font-size:1rem;
   }
-
   button {
     padding:12px 20px;
     background:#2f9fff;
-    border:none;
-    color:white;
-    border-radius:6px;
-    font-size:1rem;
-    font-weight:700;
+    border:none; color:white;
+    border-radius:8px;
+    font-size:1rem; font-weight:700;
+    width:100%;
+    margin-top:6px;
   }
 
+  /* Result Box */
   .result-box {
-    background:#f1f8ff;
-    padding:16px;
-    border-radius:8px;
-    font-size:1.2rem;
+    background:#ebf5ff;
+    padding:18px;
+    border-radius:10px;
+    font-size:1.1rem;
     color:#0a4ca3;
     font-weight:700;
+    margin-top:20px;
+    line-height:1.6;
   }
 
   footer {
-    text-align:center; color:#888; font-size:0.9rem; padding:40px 0;
+    text-align:center;
+    color:#8d98a8;
+    font-size:0.9rem;
+    padding:40px 0;
   }
 </style>
 </head>
@@ -76,7 +105,7 @@
 <header>
   <div class="nav">
     <a class="brand" href="#">
-      <svg width="36" viewBox="0 0 100 100">
+      <svg width="32" viewBox="0 0 100 100">
         <defs>
           <linearGradient id="wcolor" x1="0" x2="1">
             <stop offset="0" stop-color="#bfe7ff" />
@@ -101,34 +130,34 @@
 
   <!-- Banner -->
   <div class="banner">
-<img src="banner.png" alt="banner" />
+    <img src="banner.png" alt="Wantong Banner">
   </div>
 
-  <!-- 試算器 -->
+  <!-- Calculator -->
   <section id="calc">
     <h2>Wantong 個人信用貸試算</h2>
-    <p>年利率固定 <strong>16%</strong>、手續費 <strong>6%</strong></p>
+    <p>固定年利率 <strong>16%</strong> ・ 手續費 <strong>6%</strong></p>
 
     <div class="calc-group">
       <label>借款金額（NT$）</label>
-      <input id="loanAmount" type="number" placeholder="請輸入金額，例如 100000">
+      <input id="loanAmount" type="number" placeholder="請輸入金額，例如：100000">
     </div>
 
     <div class="calc-group">
       <label>期數（月）</label>
-      <input id="months" type="number" placeholder="例如 12、24、36">
+      <input id="months" type="number" placeholder="例如：12、36、60">
     </div>
 
     <button onclick="calculate()">開始試算</button>
 
-    <div id="result" class="result-box" style="display:none; margin-top:20px;"></div>
+    <div id="result" class="result-box" style="display:none;"></div>
   </section>
 
   <!-- FAQ -->
   <section id="faq">
     <h2>常見問題</h2>
-    <p><strong>Q：利率是多少？</strong><br>固定年利率 16%，手續費 6%。</p>
-    <p><strong>Q：撥款時間？</strong><br>核准後最快 1 天撥款。</p>
+    <p><strong>Q：利率是多少？</strong><br>固定年利率 16%，另計手續費 6%。</p>
+    <p><strong>Q：什麼時候會撥款？</strong><br>核准後最快 1 天即可撥款。</p>
   </section>
 
   <footer>
@@ -141,7 +170,7 @@
 function calculate() {
   const amount = Number(document.getElementById("loanAmount").value);
   const months = Number(document.getElementById("months").value);
-  const rate = 0.16 / 12; 
+  const rate = 0.16 / 12;
   const fee = amount * 0.06;
 
   if (!amount || !months) {
@@ -154,8 +183,9 @@ function calculate() {
 
   document.getElementById("result").style.display = "block";
   document.getElementById("result").innerHTML =
-    "每月應還：" + Math.round(monthly).toLocaleString() + " 元<br>" +
-    "總費用（含手續費）：" + Math.round(total).toLocaleString() + " 元";
+    "📌 每月應還：" + Math.round(monthly).toLocaleString() + " 元<br>" +
+    "📌 手續費：" + Math.round(fee).toLocaleString() + " 元<br>" +
+    "📌 總費用：" + Math.round(total).toLocaleString() + " 元";
 }
 </script>
 
