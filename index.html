@@ -5,147 +5,94 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Wantong — 線上貸款方案</title>
 
-<!-- Google font (可保留或替換) -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --brand: #2f9fff;        /* 主品牌色（淡藍）*/
+    --brand: #2f9fff; 
     --brand-600:#1e8eed;
     --muted: #6b7280;
-    --bg: #f7fbff;           /* 淡背景 */
+    --bg: #f7fbff;
     --card-bg: #ffffff;
     --glass: rgba(47,159,255,0.08);
     --radius: 12px;
     --maxw: 1100px;
   }
   *{box-sizing:border-box}
-  html,body{height:100%}
   body{
     margin:0;
-    font-family:"Inter",system-ui,-apple-system,"Microsoft JhengHei",Arial;
+    font-family:"Inter","Microsoft JhengHei",Arial;
     color:#111827;
     background: linear-gradient(180deg,var(--bg),#ffffff 30%);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    line-height:1.5;
   }
-
-  /* Header */
   header{
-    position:sticky; top:0; z-index:60;
+    position:sticky; top:0;
     backdrop-filter: blur(6px);
     background: rgba(255,255,255,0.8);
     border-bottom: 1px solid rgba(16,24,40,0.04);
+    z-index:50;
   }
-  .nav {
-    max-width:var(--maxw);
-    margin:0 auto; display:flex; align-items:center; justify-content:space-between;
-    padding:14px 20px;
-  }
-  .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--brand-600); }
+  .nav{max-width:var(--maxw); margin:auto; display:flex; justify-content:space-between; padding:14px 20px; align-items:center}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#0f1724}
   .brand svg{width:40px;height:40px}
-  .brand .title{font-weight:700; font-size:1.05rem; color:#0f1724}
-  nav ul{display:flex; gap:18px; margin:0; padding:0; list-style:none; align-items:center;}
-  nav a{color:var(--muted); text-decoration:none; font-weight:600; font-size:0.95rem}
-  .cta { padding:10px 16px; background:var(--brand); color:white; border-radius:10px; text-decoration:none; font-weight:700; box-shadow:0 6px 18px rgba(47,159,255,0.16); }
+  nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+  nav a{color:var(--muted);text-decoration:none;font-weight:600}
+  .cta{padding:10px 16px;background:var(--brand);color:white;border-radius:10px;font-weight:700;text-decoration:none}
 
-  /* Hero */
-  .hero{
-    max-width:var(--maxw);
-    margin:36px auto 24px;
-    padding:48px 20px;
-    display:flex; gap:28px; align-items:center; justify-content:space-between;
-  }
-  .hero-left{flex:1; padding-right:20px}
-  .kicker{display:inline-block; font-weight:600; color:var(--brand-600); background:var(--glass); padding:8px 12px; border-radius:999px; margin-bottom:18px;}
-  h1{font-size:2.6rem; margin:0 0 14px; color:#0b1220; line-height:1.05}
-  p.lead{color:var(--muted); margin:0 0 22px; font-size:1.05rem}
-
-  .hero-actions{display:flex; gap:12px; align-items:center}
+  .hero{max-width:var(--maxw);margin:36px auto;padding:48px 20px;display:flex;gap:28px;align-items:center}
+  .kicker{background:var(--glass);padding:8px 12px;border-radius:999px;margin-bottom:18px;color:var(--brand-600);font-weight:600;display:inline-block}
+  h1{font-size:2.6rem;margin:0 0 14px;color:#0b1220}
+  p.lead{color:var(--muted);font-size:1.05rem;margin:0 0 22px}
   .btn-primary{
     background: linear-gradient(180deg,var(--brand),var(--brand-600));
-    color:white; border:none; padding:14px 20px; border-radius:12px; font-weight:700; text-decoration:none;
-    box-shadow:0 10px 30px rgba(47,159,255,0.12);
+    color:white;padding:14px 20px;border-radius:12px;text-decoration:none;font-weight:700;
   }
-  .btn-ghost{background:transparent; border:1px solid rgba(11,20,32,0.06); padding:12px 16px; border-radius:10px; color:var(--muted); font-weight:600; text-decoration:none}
+  .btn-ghost{
+    border:1px solid rgba(11,20,32,0.06);padding:12px 16px;border-radius:10px;color:var(--muted);font-weight:600;text-decoration:none
+  }
 
-  /* Right card (quick calculator/form teaser) */
   .hero-right{
-    width:360px; max-width:40%;
-    background:linear-gradient(180deg, rgba(255,255,255,0.9), #ffffff);
-    border-radius:14px; padding:18px; box-shadow:0 8px 30px rgba(12,20,30,0.06); border:1px solid rgba(10,20,40,0.03)
+    width:360px;background:white;padding:18px;border-radius:14px;
+    box-shadow:0 8px 30px rgba(12,20,30,0.06);border:1px solid rgba(10,20,40,0.03)
   }
-  .small-label{font-size:0.85rem;color:var(--muted); margin-bottom:6px}
-  .calc-row{display:flex; gap:8px}
-  input[type="range"]{width:100%}
-  .stat{display:flex; justify-content:space-between; margin-top:10px; font-weight:700}
+  .small-label{font-size:0.85rem;color:var(--muted);margin-bottom:6px;display:block}
 
-  /* Sections */
-  section{max-width:var(--maxw); margin:36px auto; padding:28px 20px;}
-  .grid{display:grid; gap:18px}
-  .features{grid-template-columns:repeat(4,1fr)}
-  .card{
-    background:var(--card-bg); border-radius:12px; padding:22px; text-align:center;
-    box-shadow:0 8px 20px rgba(14,20,30,0.04);
-  }
-  .icon-round{width:64px;height:64px;border-radius:12px;background:rgba(47,159,255,0.06);display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
-  .card h3{margin:8px 0 6px; font-size:1.05rem}
-  .muted{color:var(--muted)}
+  section{max-width:var(--maxw);margin:36px auto;padding:28px 20px;}
+  .features{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .card{background:white;border-radius:12px;padding:22px;text-align:center;box-shadow:0 8px 20px rgba(14,20,30,0.04)}
+  .icon-round{width:64px;height:64px;background:rgba(47,159,255,0.06);border-radius:12px;margin:auto;margin-bottom:12px;display:flex;align-items:center;justify-content:center}
 
-  /* Plan / details */
-  .plan-row{display:flex; gap:18px; align-items:stretch}
-  .plan-main{flex:1}
-  .plan-side{width:320px; border-radius:12px; padding:18px; background:linear-gradient(180deg, #fff, #fbfdff); box-shadow:0 8px 20px rgba(14,20,30,0.03)}
-  .plan-list{list-style:none; padding:0; margin:0}
-  .plan-list li{padding:10px 0; border-bottom:1px dashed rgba(10,20,30,0.03); color:var(--muted)}
-  .plan-list li strong{color:#0f1724; display:inline-block; min-width:160px;}
+  .plan-row{display:flex;gap:18px}
+  .plan-side{width:320px;border-radius:12px;padding:18px;background:white;box-shadow:0 8px 20px rgba(14,20,30,0.03)}
 
-  /* Steps */
-  .steps{display:flex; gap:18px; flex-wrap:wrap; justify-content:space-between}
-  .step{flex:1; min-width:180px; text-align:center; background:linear-gradient(180deg,#fff,#fbfdff); padding:18px;border-radius:12px; box-shadow:0 6px 18px rgba(12,20,30,0.04)}
-  .step .num{width:56px;height:56px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:800;color:white;background:var(--brand); margin-bottom:10px; font-size:1.1rem}
+  .steps{display:flex;gap:18px}
+  .step{flex:1;background:white;padding:18px;border-radius:12px;text-align:center;box-shadow:0 6px 18px rgba(12,20,30,0.04)}
+  .step .num{width:56px;height:56px;border-radius:50%;background:var(--brand);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;margin:auto;margin-bottom:10px}
 
-  /* FAQ */
-  .faq-item{margin-bottom:12px; border-radius:10px; padding:14px; background:rgba(15,23,36,0.02)}
-  .faq-question{font-weight:700; margin-bottom:6px}
-  .faq-answer{color:var(--muted)}
+  .faq-item{background:rgba(15,23,36,0.02);padding:14px;border-radius:10px;margin-bottom:12px}
 
-  /* Footer */
-  footer{padding:34px 20px; background:#0b1220; color:white; margin-top:36px}
-  .foot-inner{max-width:var(--maxw); margin:0 auto; display:flex; justify-content:space-between; gap:12px; align-items:center}
+  footer{background:#0b1220;color:white;padding:34px 20px;margin-top:36px}
+  .foot-inner{max-width:var(--maxw);margin:auto;display:flex;justify-content:space-between;align-items:center}
 
-  /* Responsive */
-  @media (max-width:980px){
-    .hero{flex-direction:column; align-items:flex-start}
-    .hero-right{width:100%; max-width:100%}
-    .plan-row{flex-direction:column}
+  @media (max-width:900px){
+    .hero{flex-direction:column}
     .features{grid-template-columns:repeat(2,1fr)}
+    .plan-row{flex-direction:column}
   }
-  @media (max-width:520px){
+  @media (max-width:500px){
     nav ul{display:none}
-    .hero h1{font-size:1.8rem}
-    .brand .title{font-size:0.95rem}
     .features{grid-template-columns:1fr}
-    .step{min-width:120px}
-    .hero{padding:18px}
-    .hero-right{padding:14px}
+    h1{font-size:1.9rem}
   }
-
-  /* small helpers */
-  .text-center{text-align:center}
-  .muted-small{color:var(--muted); font-size:0.92rem}
-  a{cursor:pointer}
 </style>
 </head>
+
 <body>
 
 <header>
   <div class="nav">
-    <!-- Logo + brand -->
-    <a class="brand" href="#top" aria-label="Wantong">
-      <!-- Inline SVG logo: a simple stylized W / arrow -->
-      <svg viewBox="0 0 100 100" role="img" aria-hidden="true">
+    <a class="brand" href="#">
+      <svg viewBox="0 0 100 100">
         <defs>
           <linearGradient id="g" x1="0" x2="1">
             <stop offset="0" stop-color="#aee2ff" />
@@ -153,97 +100,166 @@
           </linearGradient>
         </defs>
         <rect width="100" height="100" rx="18" fill="url(#g)"></rect>
-        <path d="M20 65 L35 30 L50 65 L65 30 L80 65" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 65 L35 30 L50 65 L65 30 L80 65" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
       </svg>
       <div>
-        <div class="title">Wantong</div>
-        <div style="font-size:12px;color:#526070">線上貸款 · 迅速可靠</div>
+        <div style="font-weight:700">Wantong</div>
+        <div style="font-size:12px;color:#526070">線上貸款服務</div>
       </div>
     </a>
 
-    <!-- Navigation -->
     <nav>
       <ul>
-        <li><a href="#features">方案特色</a></li>
-        <li><a href="#plan">方案內容</a></li>
-        <li><a href="#steps">申請流程</a></li>
+        <li><a href="#features">特色</a></li>
+        <li><a href="#plan">方案</a></li>
+        <li><a href="#steps">流程</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
     </nav>
 
-    <div>
-      <a class="cta" href="#apply">立即申請</a>
-    </div>
+    <a class="cta" href="#apply">立即申請</a>
   </div>
 </header>
 
-<main id="top">
-  <!-- HERO -->
+<main>
   <section class="hero">
     <div class="hero-left">
-      <div class="kicker">活動期間限時優惠</div>
-      <h1>線上貸款方案 — 申請簡單、放款快速</h1>
-      <p class="lead">淡藍品牌，清爽介面。最低利率、彈性還款、全程線上辦理，最快 1 天核貸。</p>
+      <div class="kicker">Wantong 線上貸款</div>
+      <h1>線上申請 · 快速核貸 · 彈性還款</h1>
+      <p class="lead">最簡單的貸款流程，清爽介面，Bankee 風格呈現。</p>
 
-      <div class="hero-actions">
+      <div style="display:flex;gap:12px">
         <a class="btn-primary" href="#apply">立即申請</a>
-        <a class="btn-ghost" href="#plan">查看方案詳情</a>
+        <a class="btn-ghost" href="#plan">查看方案</a>
       </div>
     </div>
 
-    <aside class="hero-right" aria-labelledby="calcTitle">
-      <div id="calcTitle" style="font-weight:800;margin-bottom:6px">快速試算器（示意）</div>
-      <div class="small-label">借款金額 (NT$)</div>
-      <div style="display:flex; gap:8px; align-items:center">
-        <input id="amount" type="range" min="30000" max="1000000" step="1000" value="30000" />
-      </div>
-      <div class="stat">
-        <div class="muted-small">目前金額</div>
-        <div id="amountDisplay" style="font-weight:800">NT$ 30,000</div>
+    <div class="hero-right">
+      <div style="font-weight:800;margin-bottom:6px">快速試算器</div>
+
+      <label class="small-label">借款金額</label>
+      <input id="amount" type="range" min="30000" max="1000000" value="30000" step="1000" />
+      <div style="display:flex;justify-content:space-between;margin-top:6px">
+        <span class="small-label">目前金額</span>
+        <span id="amountDisplay" style="font-weight:700">NT$ 30,000</span>
       </div>
 
-      <div style="margin-top:12px">
-        <div class="small-label">期數</div>
-        <select id="term" style="width:100%; padding:10px;border-radius:8px;border:1px solid rgba(10,20,30,0.06);font-weight:600">
-          <option value="12">12 期</option>
-          <option value="24">24 期</option>
-          <option value="36">36 期</option>
-          <option value="48">48 期</option>
-          <option value="60">60 期</option>
-        </select>
-      </div>
+      <label class="small-label" style="margin-top:14px">期數</label>
+      <select id="term" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;">
+        <option value="12">12 期</option>
+        <option value="24">24 期</option>
+        <option value="36">36 期</option>
+        <option value="48">48 期</option>
+        <option value="60">60 期</option>
+      </select>
 
-      <div style="margin-top:14px; display:flex; justify-content:space-between; align-items:center">
-        <div style="font-size:0.95rem; color:var(--muted)">估計月付</div>
-        <div id="est" style="font-weight:800; font-size:1.05rem">NT$ 2,700</div>
+      <div style="display:flex;justify-content:space-between;margin-top:18px">
+        <span style="color:var(--muted)">每月應繳</span>
+        <span id="est" style="font-weight:700;font-size:1.1rem">NT$ 0</span>
       </div>
-
-      <div style="margin-top:14px; display:flex; gap:8px">
-        <a class="btn-primary" style="flex:1" href="#apply">開始申請</a>
-        <a class="btn-ghost" style="flex:1" href="#faq">聯絡客服</a>
-      </div>
-    </aside>
+    </div>
   </section>
 
-  <!-- FEATURES -->
-  <section id="features" aria-labelledby="fTitle">
-    <h2 id="fTitle" class="text-center" style="margin-bottom:22px; color:#0b1220">方案特色</h2>
-    <div class="grid features" style="grid-template-columns:repeat(4,1fr);">
-      <div class="card">
-        <div class="icon-round" aria-hidden="true">
-          <!-- pct icon -->
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M6 18L18 6" stroke="var(--brand)" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="7.5" cy="7.5" r="1.8" stroke="var(--brand)" stroke-width="2"/>
-            <circle cx="16.5" cy="16.5" r="1.8" stroke="var(--brand)" stroke-width="2"/>
-          </svg>
-        </div>
-        <h3>低利率方案</h3>
-        <div class="muted">透明利率，分期彈性</div>
+  <section id="features">
+    <h2 class="text-center" style="text-align:center;margin-bottom:22px">方案特色</h2>
+    <div class="features">
+      <div class="card"><div class="icon-round">💰</div><h3>低利率</h3><div class="muted">透明費率</div></div>
+      <div class="card"><div class="icon-round">⚡</div><h3>快速核貸</h3><div class="muted">最快 1 日</div></div>
+      <div class="card"><div class="icon-round">📱</div><h3>全程線上</h3><div class="muted">免臨櫃</div></div>
+      <div class="card"><div class="icon-round">🔄</div><h3>彈性還款</h3><div class="muted">多種期數</div></div>
+    </div>
+  </section>
+
+  <section id="plan">
+    <h2 style="text-align:center;margin-bottom:18px">方案內容</h2>
+
+    <div class="plan-row">
+      <div class="card" style="flex:1">
+        <h3 style="margin-top:0">詳細說明</h3>
+        <ul style="color:var(--muted);line-height:1.8">
+          <li>金額範圍：30,000 – 1,000,000</li>
+          <li>利率：1.8% – 6.5%</li>
+          <li>期數：6–60 期</li>
+          <li>申請資料簡單</li>
+        </ul>
       </div>
 
-      <div class="card">
-        <div class="icon-round">
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <rect x="3" y="5" width="18" height="12" rx="2" stroke="var(--brand)" stroke-width="2"/>
-            <path d="M7
+      <div class="plan-side">
+        <h3>立即申請</h3>
+        <form id="apply" onsubmit="handleApply(event)">
+          <label class="small-label">姓名</label>
+          <input id="name" type="text" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;margin-bottom:10px" />
+
+          <label class="small-label">手機</label>
+          <input id="phone" type="tel" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;margin-bottom:10px" />
+
+          <label class="small-label">借款金額</label>
+          <input id="amountForm" type="number" value="30000" min="30000" max="1000000" step="1000"
+                 style="width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;margin-bottom:14px" />
+
+          <button class="btn-primary" style="width:100%" type="submit">送出申請</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="steps">
+    <h2 style="text-align:center;margin-bottom:18px">申請流程</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div>填寫資料</div>
+      <div class="step"><div class="num">2</div>上傳文件</div>
+      <div class="step"><div class="num">3</div>審核</div>
+      <div class="step"><div class="num">4</div>撥款</div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2 style="text-align:center;margin-bottom:18px">常見問題</h2>
+    <div class="faq-item"><div>Q：多久核貸？</div><div class="muted">最快 1 天。</div></div>
+    <div class="faq-item"><div>Q：需要什麼資料？</div><div class="muted">身份證＋必要財力證明。</div></div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <div>Wantong 線上貸款服務</div>
+    <div>© <span id="year"></span> Wantong</div>
+  </div>
+</footer>
+
+<script>
+  const amount = document.getElementById("amount");
+  const amountDisplay = document.getElementById("amountDisplay");
+  const term = document.getElementById("term");
+  const est = document.getElementById("est");
+  const amountForm = document.getElementById("amountForm");
+
+  function formatMoney(n){
+    return "NT$ " + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  function calcEst(){
+    const principal = Number(amount.value);
+    const months = Number(term.value);
+    const apr = 0.06;
+    const r = apr / 12;
+    const payment = Math.round(principal * r * Math.pow(1+r,months) / (Math.pow(1+r,months)-1));
+    est.textContent = formatMoney(payment);
+  }
+
+  amount.addEventListener("input",()=>{
+    const v = Number(amount.value);
+    amountDisplay.textContent = formatMoney(v);
+    amountForm.value = v;
+    calcEst();
+  });
+
+  amountForm.addEventListener("input",()=>{
+    let v = Number(amountForm.value);
+    if(v < 30000) v = 30000;
+    if(v > 1000000) v = 1000000;
+
+    amountForm.value = v;
+    amount.value = v;
+    amountDisplay.textContent = formatMoney(v);
+    calcE
