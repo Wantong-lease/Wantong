@@ -32,8 +32,9 @@
     padding:0 20px;
   }
 
+  /* ★ Logo 放大到 160px */
   .brand img {
-    height:120px;   /* ★ 大Logo */
+    height:160px;
     width:auto;
   }
 
@@ -119,7 +120,6 @@
   }
   button:hover { background:#005fcc; }
 
-  /* ------------------ Result Box ------------------ */
   .result-box {
     background:#e9f3ff;
     padding:20px;
@@ -128,12 +128,6 @@
     color:#0a4fa8;
     font-weight:800;
     border:1px solid #c7dfff;
-  }
-
-  /* ------------------ FAQ ------------------ */
-  #faq p {
-    line-height:1.6;
-    margin-bottom:12px;
   }
 
   /* ------------------ Footer ------------------ */
@@ -161,7 +155,9 @@
 
   /* ------------------ Mobile ------------------ */
   @media (max-width:600px) {
-    .brand img { height:85px; }
+    /* ★ 手機 Logo 也變大 */
+    .brand img { height:110px; }
+
     .brand { font-size:1.4rem; }
     nav { display:none; }
     section { padding:22px; }
@@ -188,12 +184,10 @@
 
 <div class="container">
 
-  <!-- Banner -->
   <div class="banner">
     <img src="banner.png" alt="banner" />
   </div>
 
-  <!-- Calculator -->
   <section id="calc">
     <h2>Wantong 個人信用貸試算</h2>
     <p>年利率固定 <strong>16%</strong>、手續費 <strong>6%</strong></p>
@@ -213,7 +207,6 @@
     <div id="result" class="result-box" style="display:none;margin-top:20px;"></div>
   </section>
 
-  <!-- FAQ -->
   <section id="faq">
     <h2>常見問題</h2>
     <p><strong>Q：利率是多少？</strong><br>固定年利率 16%，手續費 6%。</p>
@@ -226,7 +219,6 @@
 
 </div>
 
-<!-- LINE Button -->
 <a href="https://line.me/ti/p/xxxxx" target="_blank" class="line-float">
   Line 立即申請
 </a>
