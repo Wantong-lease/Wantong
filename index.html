@@ -92,7 +92,7 @@
   }
 
   /* ————————————————————————————————
-       浮動按鈕（深藍色）
+       ✔ 圓形白色浮動按鈕（已整合）
      ———————————————————————————————— */
 
   .floating-wrap {
@@ -101,29 +101,33 @@
     bottom:18px;
     display:flex;
     flex-direction:column;
-    gap:12px;
+    gap:14px;
     z-index:200;
   }
 
   .float-btn {
-    background:#003366;
-    color:white;
-    padding:14px 20px;
-    border-radius:50px;
-    font-size:1.05rem;
-    font-weight:700;
-    text-decoration:none;
-    box-shadow:0 4px 16px rgba(0,0,0,0.25);
+    width:62px;
+    height:62px;
+    background:white;
+    border-radius:50%;
     display:flex;
+    justify-content:center;
     align-items:center;
-    gap:10px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.22);
+    text-decoration:none;
 
     animation: floatUpDown 3s ease-in-out infinite,
                shake 5s infinite;
   }
 
+  .float-btn img {
+    width:32px;
+    height:32px;
+  }
+
   .float-btn.call {
-    background:#001c44;
+    font-size:30px;
+    color:#003366;
   }
 
   @keyframes floatUpDown {
@@ -138,20 +142,6 @@
     94% { transform: translateX(2px); }
     96% { transform: translateX(-2px); }
     98% { transform: translateX(2px); }
-  }
-
-  .line-icon {
-    width:26px;
-  }
-
-  @media (max-width:600px) {
-    .brand img { height:45px; }
-    nav { display:none; }
-    .float-btn {
-      font-size:0.95rem;
-      padding:12px 16px;
-    }
-    .line-icon { width:22px; }
   }
 
 </style>
@@ -212,18 +202,17 @@
 
 </div>
 
-<!-- ⭐⭐⭐ 右下角深藍色雙按鈕（LINE + 電話）⭐⭐⭐ -->
+<!-- ⭐⭐⭐ 已換成圓形白色浮動按鈕 ⭐⭐⭐ -->
 <div class="floating-wrap">
-  
-  <!-- LINE 按鈕 -->
+
+  <!-- LINE 圓形按鈕 -->
   <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="float-btn">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" class="line-icon">
-    LINE 立即申請
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg">
   </a>
 
-  <!-- 立即來電 -->
+  <!-- 電話 圓形按鈕 -->
   <a href="tel:0966857279" class="float-btn call">
-    📞 立即來電
+    📞
   </a>
 
 </div>
