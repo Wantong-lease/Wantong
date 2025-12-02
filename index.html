@@ -48,11 +48,6 @@
     padding:10px 14px;
   }
 
-  /* Banner */
-  .banner {
-    position:relative;
-  }
-
   .banner img {
     width:100%;
     border-radius:12px;
@@ -60,32 +55,6 @@
     box-shadow:0 4px 16px rgba(0,0,0,0.08);
   }
 
-  /* ⭐ 新增：立即申請按鈕  */
-  .banner-btn-wrap {
-    position:absolute;
-    bottom:82px; 
-    left:50%;
-    transform:translateX(-50%);
-    z-index:20;
-  }
-  .banner-btn {
-    background:#003366;
-    padding:14px 40px;
-    color:white;
-    text-decoration:none;
-    font-size:1.2rem;
-    font-weight:700;
-    border-radius:50px;
-    box-shadow:0 6px 18px rgba(0,0,0,0.25);
-    display:inline-block;
-  }
-
-  @media (max-width:600px){
-    .banner-btn { font-size:1rem; padding:12px 28px; }
-    .banner-btn-wrap { bottom:62px; }
-  }
-
-  /* Section */
   section {
     background:white;
     border-radius:10px;
@@ -181,6 +150,7 @@
     overflow: hidden;
     transition: box-shadow 0.2s;
   }
+
   .faq-header {
     padding: 16px 18px;
     cursor: pointer;
@@ -190,8 +160,11 @@
     justify-content: space-between;
     align-items: center;
   }
+
   .faq-header:hover { background:#f3f8ff; }
+
   .faq-arrow { transition: 0.3s; }
+
   .faq-content {
     max-height: 0;
     overflow: hidden;
@@ -200,9 +173,18 @@
     line-height: 1.6;
     transition: max-height 0.35s ease, padding 0.3s;
   }
-  .faq-item.active { box-shadow:0 4px 16px rgba(0,0,0,0.08); }
-  .faq-item.active .faq-content { padding:14px 18px 18px; }
-  .faq-item.active .faq-arrow { transform: rotate(180deg); }
+
+  .faq-item.active {
+    box-shadow:0 4px 16px rgba(0,0,0,0.08);
+  }
+
+  .faq-item.active .faq-content {
+    padding:14px 18px 18px;
+  }
+
+  .faq-item.active .faq-arrow {
+    transform: rotate(180deg);
+  }
 
 </style>
 </head>
@@ -224,16 +206,9 @@
 
 <div class="container">
 
-  <!-- Banner -->
+  <!-- Banner（已不再添加任何立即申請按鈕） -->
   <div class="banner">
     <img src="banner.png" alt="banner" />
-
-    <!-- ⭐ 貼合圖片按鈕位置 ⭐ -->
-    <div class="banner-btn-wrap">
-      <a href="https://line.me/R/ti/p/@076tdbmy" class="banner-btn" target="_blank">
-        立即申請
-      </a>
-    </div>
   </div>
 
   <!-- 試算器 -->
@@ -303,15 +278,19 @@
 
 </div>
 
-<!-- 浮動按鈕 -->
+<!-- 浮動圓形按鈕（LINE / 電話） -->
 <div class="floating-wrap">
+
+  <!-- LINE -->
   <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="float-btn">
     <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg">
   </a>
 
+  <!-- 電話 -->
   <a href="tel:0966857279" class="float-btn call">
     <span>📞</span>
   </a>
+
 </div>
 
 <script>
@@ -335,7 +314,7 @@ function calculate() {
     "總費用（含手續費）：" + Math.round(total).toLocaleString() + " 元";
 }
 
-/* FAQ 開合 */
+/* FAQ 展開 */
 const faqItems = document.querySelectorAll(".faq-item");
 
 faqItems.forEach(item => {
