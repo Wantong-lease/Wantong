@@ -6,192 +6,244 @@
 <title>Wantong 個人信用貸</title>
 
 <style>
-/* ===== Banner 浮動按鈕 ===== */
-.banner-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 860px;
-  margin: 0 auto;
-}
+  /* ===== Banner 浮動按鈕 ===== */
+  .banner-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+  }
 
-.banner-img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow:0 4px 16px rgba(0,0,0,0.08);
-}
+  .banner-img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.08);
+    display:block;
+  }
 
-.banner-line-btn {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-  background: #06C755; /* LINE 綠 */
-  color: white;
-  font-size: 1.05rem;
-  font-weight: 700;
-  padding: 14px 26px;
-  border-radius: 40px;
-  text-decoration: none;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.16);
-  transition: 0.25s;
-}
+  .banner-line-btn {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    background: #06C755; /* LINE 綠 */
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 14px 26px;
+    border-radius: 40px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.16);
+    transition: 0.25s;
+  }
 
-.banner-line-btn:hover {
-  background: #05b14c;
-  transform: translateY(-2px);
-}
+  .banner-line-btn:hover {
+    background: #05b14c;
+    transform: translateY(-2px);
+  }
 
-body { margin:0; font-family:"Microsoft JhengHei",sans-serif; background:#f6fbff; color:#222; }
+  body { margin:0; font-family:"Microsoft JhengHei",sans-serif; background:#f6fbff; color:#222; }
 
-header {
-  background:white;
-  border-bottom:1px solid #e5eaf0;
-  padding:6px 0;
-  position:sticky;top:0;z-index:30;
-}
-.nav {
-  max-width:860px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0 14px;
-}
+  header {
+    background:white;
+    border-bottom:1px solid #e5eaf0;
+    padding:6px 0;
+    position:sticky;top:0;z-index:30;
+  }
+  .nav {
+    max-width:860px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 14px;
+  }
 
-.brand img { height:95px; width:auto; }
-.brand { display:flex; align-items:center; }
+  .brand img { height:95px; width:auto; }
+  .brand { display:flex; align-items:center; }
 
-nav a { margin-left:18px; text-decoration:none; color:#6b7585; font-weight:600; }
-nav a:hover { color:#2f9fff; }
+  nav a { margin-left:18px; text-decoration:none; color:#6b7585; font-weight:600; }
+  nav a:hover { color:#2f9fff; }
 
-.container { max-width:860px; margin:auto; padding:10px 14px; }
+  .container { max-width:860px; margin:auto; padding:10px 14px; }
 
-.banner img {
-  width:100%;
-  border-radius:12px;
-  margin-top:14px;
-  box-shadow:0 4px 16px rgba(0,0,0,0.08);
-}
+  /* 舊版 .banner img 保留，不再使用，但不影響排版
+  .banner img {
+    width:100%;
+    border-radius:12px;
+    margin-top:14px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.08);
+  }
+  */
 
-section {
-  background:white;
-  border-radius:10px;
-  padding:24px;
-  margin:22px 0;
-  border:1px solid #e8eff5;
-}
+  section {
+    background:white;
+    border-radius:10px;
+    padding:24px;
+    margin:22px 0;
+    border:1px solid #e8eff5;
+  }
 
-h2 { margin-top:0; }
-.calc-group { margin-bottom:16px; }
-input {
-  width:100%; padding:12px;
-  border:1px solid #ccc; border-radius:6px;
-  font-size:1rem;
-}
+  h2 { margin-top:0; }
+  .calc-group { margin-bottom:16px; }
+  input {
+    width:100%; padding:12px;
+    border:1px solid #ccc; border-radius:6px;
+    font-size:1rem;
+  }
 
-button {
-  padding:12px 20px;
-  background:#2f9fff;
-  border:none;
-  color:white;
-  border-radius:6px;
-  font-size:1rem;
-  font-weight:700;
-}
+  button {
+    padding:12px 20px;
+    background:#2f9fff;
+    border:none;
+    color:white;
+    border-radius:6px;
+    font-size:1rem;
+    font-weight:700;
+  }
 
-.result-box {
-  background:#f1f8ff;
-  padding:16px;
-  border-radius:8px;
-  font-size:1.2rem;
-  color:#0a4ca3;
-  font-weight:700;
-}
+  .result-box {
+    background:#f1f8ff;
+    padding:16px;
+    border-radius:8px;
+    font-size:1.2rem;
+    color:#0a4ca3;
+    font-weight:700;
+  }
 
-footer { text-align:center; color:#888; font-size:0.9rem; padding:40px 0; }
+  footer { text-align:center; color:#888; font-size:0.9rem; padding:40px 0; }
 
-/* FAQ */
-.faq-item {
-  border: 1px solid #e5edf7;
-  border-radius: 10px;
-  margin-bottom: 12px;
-  background: #ffffff;
-  overflow: hidden;
-  transition: box-shadow 0.2s;
-}
-.faq-header {
-  padding: 16px 18px;
-  cursor: pointer;
-  font-weight: 700;
-  color: #003366;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.faq-header:hover { background: #f3f8ff; }
-.faq-arrow { transition: 0.3s; }
-.faq-content {
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 18px;
-  color: #444;
-  line-height: 1.6;
-  transition: max-height 0.35s ease, padding 0.3s;
-}
-.faq-item.active { box-shadow:0 4px 16px rgba(0,0,0,0.08); }
-.faq-item.active .faq-content { padding:14px 18px 18px; }
-.faq-item.active .faq-arrow { transform: rotate(180deg); }
+  /* 浮動按鈕容器 */
+  .floating-wrap {
+    position:fixed;
+    right:16px;
+    bottom:16px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:200;
+  }
 
-@media (max-width:600px) {
-  .brand img { height:70px !important; }
-}
+  .floating-wrap a {
+    text-decoration: none !important;
+    outline: none !important;
+    border: none !important;
+  }
+  .float-btn {
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:transparent !important;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 16px rgba(0,0,0,0.12);
+  }
+  .float-btn img {
+    display:block;
+    width:34px;
+    height:34px;
+    object-fit:contain;
+  }
+  .float-btn.call span {
+    display:inline-block;
+    font-size:26px;
+    line-height:1;
+    color:#001c44;
+  }
 
-/* 貸款流程 */
-.steps-list {
-  margin-top: 20px;
-}
-.step-item {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 18px;
-}
-.step-text {
-  font-size: 1.05rem;
-  color:#2d3a4d;
-  line-height:1.6;
-}
+  /* FAQ */
+  .faq-item {
+    border: 1px solid #e5edf7;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    background: #ffffff;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .faq-header {
+    padding: 16px 18px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #003366;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-header:hover { background: #f3f8ff; }
+  .faq-arrow { transition: 0.3s; }
+  .faq-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 18px;
+    color: #444;
+    line-height: 1.6;
+    transition: max-height 0.35s ease, padding 0.3s;
+  }
+  .faq-item.active { box-shadow:0 4px 16px rgba(0,0,0,0.08); }
+  .faq-item.active .faq-content { padding:14px 18px 18px; }
+  .faq-item.active .faq-arrow { transform: rotate(180deg); }
 
-/* 公司資訊 */
-.company-info-wrap {
-  width: 100%;
-  background:#e9f1ff;
-  padding: 40px 0;
-  margin-top: 40px;
-}
-.company-info-card {
-  max-width: 860px;
-  margin: auto;
-  background: white;
-  padding: 26px 30px;
-  border-radius: 12px;
-  border: 1px solid #d6e2f3;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
-}
-.company-info-card h3 {
-  margin-top: 0;
-  margin-bottom: 14px;
-  color: #003366;
-  font-size: 1.35rem;
-  font-weight: 800;
-}
-.company-info-card p { margin: 6px 0; }
-.company-info-card .legal-note {
-  margin-top: 16px;
-  background:#f6f9ff;
-  padding:14px 16px;
-  border-radius:8px;
-  font-size:0.92rem;
-  color:#4b5566;
-}
+  @media (max-width:600px) {
+    .brand img { height:70px !important; }
+  }
+
+  /* ————————————————
+     貸款流程樣式
+     ———————————————— */
+  .steps-list {
+    margin-top: 20px;
+  }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+  .step-text {
+    font-size: 1.05rem;
+    color:#2d3a4d;
+    line-height:1.6;
+  }
+
+  /* ————————————————
+     公司資訊
+     ———————————————— */
+  .company-info-wrap {
+    width: 100%;
+    background:#e9f1ff;
+    padding: 40px 0;
+    margin-top: 40px;
+  }
+
+  .company-info-card {
+    max-width: 860px;
+    margin: auto;
+    background: white;
+    padding: 26px 30px;
+    border-radius: 12px;
+    border: 1px solid #d6e2f3;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    color: #333;
+    line-height: 1.7;
+  }
+
+  .company-info-card h3 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    color: #003366;
+    font-size: 1.35rem;
+    font-weight: 800;
+  }
+
+  .company-info-card p { margin: 6px 0; font-size: 1rem; color:#2d3a4d; }
+
+  .company-info-card .legal-note {
+    margin-top: 16px;
+    background:#f6f9ff;
+    padding:14px 16px;
+    border-radius:8px;
+    font-size:0.92rem;
+    color:#4b5566;
+  }
 
 </style>
 </head>
@@ -210,14 +262,16 @@ footer { text-align:center; color:#888; font-size:0.9rem; padding:40px 0; }
 
 <div class="container">
 
+  <!-- Banner + 立即加 LINE 申請 -->
   <div class="banner-wrap">
     <img src="banner.png" class="banner-img" alt="banner">
+
     <a href="https://line.me/R/ti/p/@076tdbmy" class="banner-line-btn" target="_blank">
       立即加 LINE 申請 →
     </a>
   </div>
 
-  <!-- 試算器 -->
+  <!-- ===== 試算器 ===== -->
   <section id="calc">
     <h2>Wantong 個人信用貸試算</h2>
     <p>年利率固定 <strong>16%</strong>、手續費 <strong>6%</strong></p>
@@ -233,6 +287,7 @@ footer { text-align:center; color:#888; font-size:0.9rem; padding:40px 0; }
     </div>
 
     <button onclick="calculate()">開始試算</button>
+
     <div id="result" class="result-box" style="display:none; margin-top:20px;"></div>
   </section>
 
@@ -242,38 +297,66 @@ footer { text-align:center; color:#888; font-size:0.9rem; padding:40px 0; }
 
     <div class="steps-list">
       <div class="step-item">
-        <img src="step1.png" style="width:40px; margin-right:8px;">
-        <div class="step-text">透過專線或 LINE 諮詢。</div>
+        <img src="step1.png" style="width:40px; margin-right:8px; vertical-align:middle;">
+        <div class="step-text">透過專線諮詢或官方 LINE，24 小時專人協助。</div>
       </div>
-
       <div class="step-item">
-        <img src="step2.png" style="width:40px; margin-right:8px;">
-        <div class="step-text">專人一對一服務。</div>
+        <img src="step2.png" style="width:40px; margin-right:8px; vertical-align:middle;">
+        <div class="step-text">專人一對一服務，全程協助貸款流程。</div>
       </div>
-
       <div class="step-item">
-        <img src="step3.png" style="width:40px; margin-right:8px;">
-        <div class="step-text">準備資料與額度審核。</div>
+        <img src="step3.png" style="width:40px; margin-right:8px; vertical-align:middle;">
+        <div class="step-text">準備資料，進行額度與條件評估。</div>
       </div>
-
       <div class="step-item">
-        <img src="step4.png" style="width:40px; margin-right:8px;">
-        <div class="step-text">對保確認資料與合約。</div>
+        <img src="step4.png" style="width:40px; margin-right:8px; vertical-align:middle;">
+        <div class="step-text">專員安排對保，確認資料與合約內容。</div>
       </div>
-
       <div class="step-item">
-        <img src="step5.png" style="width:40px; margin-right:8px;">
-        <div class="step-text">審核通過立即撥款。</div>
+        <img src="step5.png" style="width:40px; margin-right:8px; vertical-align:middle;">
+        <div class="step-text">審核通過後立即撥款。</div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- ===== FAQ ===== -->
   <section id="faq">
     <h2>常見問題</h2>
-    <div class="faq-item"><div class="faq-header">利率是多少？<span class="faq-arrow">▼</span></div><div class="faq-content">年利率 1~16%，手續費 0~6%。</div></div>
-    <div class="faq-item"><div class="faq-header">撥款時間？<span class="faq-arrow">▼</span></div><div class="faq-content">最快 24 小時撥款。</div></div>
-    <div class="faq-item"><div class="faq-header">需要哪些文件？<span class="faq-arrow">▼</span></div><div class="faq-content">身分證、薪轉明細、扣繳憑單等。</div></div>
+
+    <div class="faq-item">
+      <div class="faq-header">利率是多少？<span class="faq-arrow">▼</span></div>
+      <div class="faq-content">年利率 1~16%，手續費 0~6%。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-header">撥款時間？<span class="faq-arrow">▼</span></div>
+      <div class="faq-content">文件齊全並核准後，最快 1 天即可撥款。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-header">申請需要哪些文件？<span class="faq-arrow">▼</span></div>
+      <div class="faq-content">身分證、薪轉/勞保明細、年度扣繳憑單／所得清單。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-header">需要保人嗎？<span class="faq-arrow">▼</span></div>
+      <div class="faq-content">不需要保人，單獨申請即可審核。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-header">是否會查聯徵？<span class="faq-arrow">▼</span></div>
+      <div class="faq-content">否，不看銀行聯徵，只評估是否具備還款能力。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-header">可以提前結清嗎？<span class="faq-arrow">▼</span></div>
+      <div class="faq-content">可以，會重新計算尚未產生的利息。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-header">可申貸金額範圍？<span class="faq-arrow">▼</span></div>
+      <div class="faq-content">最低 3 萬起，最高依個人信用評分決定。</div>
+    </div>
   </section>
 
 </div>
@@ -282,17 +365,30 @@ footer { text-align:center; color:#888; font-size:0.9rem; padding:40px 0; }
 <section class="company-info-wrap">
   <div class="company-info-card">
     <h3>公司資訊</h3>
+
     <p>公司名稱：萬通租賃有限公司</p>
     <p>統一編號：60513090</p>
     <p>公司電話：0901-067-728</p>
+
     <div class="legal-note">
       本公司依法登記成立，並依相關法令經營。<br>
-      所有貸款／租賃方案以審核為準。
+      所有貸款／租賃方案皆依實際審核為準。
     </div>
   </div>
 </section>
 
 <footer>© 2025 Wantong. All Rights Reserved.</footer>
+
+<!-- 右下角浮動按鈕 -->
+<div class="floating-wrap">
+  <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="float-btn" aria-label="LINE 立即申請">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE">
+  </a>
+
+  <a href="tel:0966857279" class="float-btn call" aria-label="立即來電">
+    <span>📞</span>
+  </a>
+</div>
 
 <script>
 function calculate() {
@@ -301,7 +397,10 @@ function calculate() {
   const rate = 0.16 / 12;
   const fee = amount * 0.06;
 
-  if (!amount || !months) { alert("請輸入金額與期數！"); return; }
+  if (!amount || !months) {
+    alert("請輸入金額與期數！");
+    return;
+  }
 
   const monthly = amount * rate / (1 - Math.pow(1 + rate, -months));
   const total = monthly * months + fee;
@@ -315,24 +414,4 @@ function calculate() {
 /* FAQ 展開 */
 const faqItems = document.querySelectorAll(".faq-item");
 faqItems.forEach(item => {
-  const header = item.querySelector(".faq-header");
-  header.addEventListener("click", () => {
-    faqItems.forEach(i => {
-      if (i !== item) {
-        i.classList.remove("active");
-        i.querySelector(".faq-content").style.maxHeight = null;
-      }
-    });
-    item.classList.toggle("active");
-    const content = item.querySelector(".faq-content");
-    if (item.classList.contains("active")) {
-      content.style.maxHeight = content.scrollHeight + "px";
-    } else {
-      content.style.maxHeight = null;
-    }
-  });
-});
-</script>
-
-</body>
-</html>
+  const header = item.querySelector(".faq-he
