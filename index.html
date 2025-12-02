@@ -23,15 +23,16 @@
     padding:0 14px;
   }
 
-  /* Logo（電腦版）*/
+  /* Logo（含手機自動縮小）*/
   .brand img {
-    height:95px;   /* ⭐ 你目前要的大小 */
+    height:110px;
     width:auto;
   }
 
-  .brand {
-    display:flex;
-    align-items:center;
+  @media (max-width:600px){
+    .brand img {
+      height:72px;
+    }
   }
 
   nav a { margin-left:18px; text-decoration:none; color:#6b7585; font-weight:600; }
@@ -91,7 +92,7 @@
   }
 
   /* ————————————————————————————————
-       浮動圓形按鈕（深藍色）
+       浮動圓形按鈕（LINE = A款：玻璃擬態）
      ———————————————————————————————— */
   .floating-wrap {
     position:fixed;
@@ -103,28 +104,63 @@
     z-index:200;
   }
 
-  .float-btn {
+  /* 玻璃擬態 LINE 按鈕 */
+  .float-btn.line {
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.22);
+    border:1px solid rgba(255,255,255,0.35);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.25);
+    animation: floatUpDown 3s ease-in-out infinite, shake 5s infinite;
+  }
+
+  .float-btn.line img {
+    width:34px;
+    height:34px;
+    filter: brightness(0) invert(1);
+  }
+
+  /* 電話按鈕（深藍色維持不變） */
+  .float-btn.call {
     width:58px;
     height:58px;
     border-radius:50%;
-    background:#003366;
+    background:#001c44;
     display:flex;
     align-items:center;
     justify-content:center;
     box-shadow:0 4px 16px rgba(0,0,0,0.25);
+    animation: floatUpDown 3s ease-in-out infinite, shake 5s infinite;
   }
-  .float-btn img, .float-btn span {
-    width:32px;
-    height:32px;
+
+  .float-btn.call span {
     color:white;
     font-size:30px;
   }
 
-  .float-btn.call { background:#001c44; }
+  @keyframes floatUpDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+  }
+
+  @keyframes shake {
+    0%, 90%, 100% { transform: translateX(0); }
+    92% { transform: translateX(-2px); }
+    94% { transform: translateX(2px); }
+    96% { transform: translateX(-2px); }
+    98% { transform: translateX(2px); }
+  }
 
   /* ————————————————————————————————
-       高質感 FAQ 區塊
+       高質感 FAQ
      ———————————————————————————————— */
+
   .faq-item {
     border: 1px solid #e5edf7;
     border-radius: 10px;
@@ -148,7 +184,9 @@
     background: #f3f8ff;
   }
 
-  .faq-arrow { transition: 0.3s; }
+  .faq-arrow {
+    transition: 0.3s;
+  }
 
   .faq-content {
     max-height: 0;
@@ -163,16 +201,12 @@
     box-shadow:0 4px 16px rgba(0,0,0,0.08);
   }
 
-  .faq-item.active .faq-content { padding:14px 18px 18px; }
-  .faq-item.active .faq-arrow { transform: rotate(180deg); }
+  .faq-item.active .faq-content {
+    padding:14px 18px 18px;
+  }
 
-  /* ————————————————————————————————
-       ⭐ 手機版 Logo 縮小 70px ⭐
-     ———————————————————————————————— */
-  @media (max-width:600px) {
-    .brand img {
-      height:70px !important; /* 手機版縮小 */
-    }
+  .faq-item.active .faq-arrow {
+    transform: rotate(180deg);
   }
 
 </style>
@@ -220,7 +254,7 @@
     <div id="result" class="result-box" style="display:none; margin-top:20px;"></div>
   </section>
 
-  <!-- FAQ -->
+  <!-- ⭐⭐⭐ FAQ ⭐⭐⭐ -->
   <section id="faq">
     <h2>常見問題</h2>
 
@@ -246,7 +280,7 @@
 
     <div class="faq-item">
       <div class="faq-header">是否會查聯徵？<span class="faq-arrow">▼</span></div>
-      <div class="faq-content">會進行聯徵評分，以確認信用狀況與還款能力。</div>
+      <div class="faq-content">會進行聯徵評分。</div>
     </div>
 
     <div class="faq-item">
@@ -256,7 +290,7 @@
 
     <div class="faq-item">
       <div class="faq-header">可申貸金額範圍？<span class="faq-arrow">▼</span></div>
-      <div class="faq-content">最低 3 萬起，最高依個人信用評分決定。</div>
+      <div class="faq-content">最低 3 萬起，最高依信用評分決定。</div>
     </div>
 
   </section>
@@ -267,15 +301,17 @@
 
 </div>
 
-<!-- 浮動圓形按鈕 -->
+<!-- ⭐⭐⭐ 浮動按鈕 — LINE（玻璃）＋ 電話 ⭐⭐⭐ -->
 <div class="floating-wrap">
-  <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="float-btn">
+
+  <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="float-btn line">
     <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg">
   </a>
 
   <a href="tel:0966857279" class="float-btn call">
     <span>📞</span>
   </a>
+
 </div>
 
 <script>
@@ -299,9 +335,8 @@ function calculate() {
     "總費用（含手續費）：" + Math.round(total).toLocaleString() + " 元";
 }
 
-/* FAQ 展開 */
+/* FAQ */
 const faqItems = document.querySelectorAll(".faq-item");
-
 faqItems.forEach(item => {
   const header = item.querySelector(".faq-header");
   header.addEventListener("click", () => {
