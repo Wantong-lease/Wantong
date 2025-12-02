@@ -1,46 +1,9 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wantong 個人信用貸</title>
 
 <style>
-  /* ===== Banner 浮動按鈕 ===== */
-  .banner-wrap {
-    position: relative;
-    width: 100%;
-    max-width: 860px;
-    margin: 0 auto;
-  }
-
-  .banner-img {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow:0 4px 16px rgba(0,0,0,0.08);
-    display:block;
-  }
-
-  .banner-line-btn {
-    position: absolute;
-    bottom: 24px;
-    right: 24px;
-    background: #06C755; /* LINE 綠 */
-    color: white;
-    font-size: 1.05rem;
-    font-weight: 700;
-    padding: 14px 26px;
-    border-radius: 40px;
-    text-decoration: none;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.16);
-    transition: 0.25s;
-  }
-
-  .banner-line-btn:hover {
-    background: #05b14c;
-    transform: translateY(-2px);
-  }
-
   body { margin:0; font-family:"Microsoft JhengHei",sans-serif; background:#f6fbff; color:#222; }
 
   header {
@@ -66,14 +29,12 @@
 
   .container { max-width:860px; margin:auto; padding:10px 14px; }
 
-  /* 舊版 .banner img 保留，不再使用，但不影響排版
   .banner img {
     width:100%;
     border-radius:12px;
     margin-top:14px;
     box-shadow:0 4px 16px rgba(0,0,0,0.08);
   }
-  */
 
   section {
     background:white;
@@ -187,8 +148,9 @@
     .brand img { height:70px !important; }
   }
 
+
   /* ————————————————
-     貸款流程樣式
+     新增：貸款流程樣式
      ———————————————— */
   .steps-list {
     margin-top: 20px;
@@ -198,14 +160,28 @@
     align-items: flex-start;
     margin-bottom: 18px;
   }
+  .step-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #2f9fff;
+    color: white;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 14px;
+    font-size: 1.1rem;
+  }
   .step-text {
     font-size: 1.05rem;
     color:#2d3a4d;
     line-height:1.6;
   }
 
+
   /* ————————————————
-     公司資訊
+     高質感金融機構風「公司資訊」
      ———————————————— */
   .company-info-wrap {
     width: 100%;
@@ -247,171 +223,3 @@
 
 </style>
 </head>
-
-<body>
-
-<header>
-  <div class="nav">
-    <a class="brand" href="#"><img src="logo.png" alt="Wantong Logo"></a>
-    <nav>
-      <a href="#calc">試算器</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-  </div>
-</header>
-
-<div class="container">
-
-  <!-- Banner + 立即加 LINE 申請 -->
-  <div class="banner-wrap">
-    <img src="banner.png" class="banner-img" alt="banner">
-
-    <a href="https://line.me/R/ti/p/@076tdbmy" class="banner-line-btn" target="_blank">
-      立即加 LINE 申請 →
-    </a>
-  </div>
-
-  <!-- ===== 試算器 ===== -->
-  <section id="calc">
-    <h2>Wantong 個人信用貸試算</h2>
-    <p>年利率固定 <strong>16%</strong>、手續費 <strong>6%</strong></p>
-
-    <div class="calc-group">
-      <label>借款金額（NT$）</label>
-      <input id="loanAmount" type="number" placeholder="請輸入金額，例如 100000">
-    </div>
-
-    <div class="calc-group">
-      <label>期數（月）</label>
-      <input id="months" type="number" placeholder="例如 12、24、36">
-    </div>
-
-    <button onclick="calculate()">開始試算</button>
-
-    <div id="result" class="result-box" style="display:none; margin-top:20px;"></div>
-  </section>
-
-  <!-- 貸款流程 -->
-  <section id="steps">
-    <h2>貸款流程</h2>
-
-    <div class="steps-list">
-      <div class="step-item">
-        <img src="step1.png" style="width:40px; margin-right:8px; vertical-align:middle;">
-        <div class="step-text">透過專線諮詢或官方 LINE，24 小時專人協助。</div>
-      </div>
-      <div class="step-item">
-        <img src="step2.png" style="width:40px; margin-right:8px; vertical-align:middle;">
-        <div class="step-text">專人一對一服務，全程協助貸款流程。</div>
-      </div>
-      <div class="step-item">
-        <img src="step3.png" style="width:40px; margin-right:8px; vertical-align:middle;">
-        <div class="step-text">準備資料，進行額度與條件評估。</div>
-      </div>
-      <div class="step-item">
-        <img src="step4.png" style="width:40px; margin-right:8px; vertical-align:middle;">
-        <div class="step-text">專員安排對保，確認資料與合約內容。</div>
-      </div>
-      <div class="step-item">
-        <img src="step5.png" style="width:40px; margin-right:8px; vertical-align:middle;">
-        <div class="step-text">審核通過後立即撥款。</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FAQ ===== -->
-  <section id="faq">
-    <h2>常見問題</h2>
-
-    <div class="faq-item">
-      <div class="faq-header">利率是多少？<span class="faq-arrow">▼</span></div>
-      <div class="faq-content">年利率 1~16%，手續費 0~6%。</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-header">撥款時間？<span class="faq-arrow">▼</span></div>
-      <div class="faq-content">文件齊全並核准後，最快 1 天即可撥款。</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-header">申請需要哪些文件？<span class="faq-arrow">▼</span></div>
-      <div class="faq-content">身分證、薪轉/勞保明細、年度扣繳憑單／所得清單。</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-header">需要保人嗎？<span class="faq-arrow">▼</span></div>
-      <div class="faq-content">不需要保人，單獨申請即可審核。</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-header">是否會查聯徵？<span class="faq-arrow">▼</span></div>
-      <div class="faq-content">否，不看銀行聯徵，只評估是否具備還款能力。</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-header">可以提前結清嗎？<span class="faq-arrow">▼</span></div>
-      <div class="faq-content">可以，會重新計算尚未產生的利息。</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-header">可申貸金額範圍？<span class="faq-arrow">▼</span></div>
-      <div class="faq-content">最低 3 萬起，最高依個人信用評分決定。</div>
-    </div>
-  </section>
-
-</div>
-
-<!-- 公司資訊 -->
-<section class="company-info-wrap">
-  <div class="company-info-card">
-    <h3>公司資訊</h3>
-
-    <p>公司名稱：萬通租賃有限公司</p>
-    <p>統一編號：60513090</p>
-    <p>公司電話：0901-067-728</p>
-
-    <div class="legal-note">
-      本公司依法登記成立，並依相關法令經營。<br>
-      所有貸款／租賃方案皆依實際審核為準。
-    </div>
-  </div>
-</section>
-
-<footer>© 2025 Wantong. All Rights Reserved.</footer>
-
-<!-- 右下角浮動按鈕 -->
-<div class="floating-wrap">
-  <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="float-btn" aria-label="LINE 立即申請">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE">
-  </a>
-
-  <a href="tel:0966857279" class="float-btn call" aria-label="立即來電">
-    <span>📞</span>
-  </a>
-</div>
-
-<script>
-function calculate() {
-  const amount = Number(document.getElementById("loanAmount").value);
-  const months = Number(document.getElementById("months").value);
-  const rate = 0.16 / 12;
-  const fee = amount * 0.06;
-
-  if (!amount || !months) {
-    alert("請輸入金額與期數！");
-    return;
-  }
-
-  const monthly = amount * rate / (1 - Math.pow(1 + rate, -months));
-  const total = monthly * months + fee;
-
-  document.getElementById("result").style.display = "block";
-  document.getElementById("result").innerHTML =
-    "每月應還：" + Math.round(monthly).toLocaleString() + " 元<br>" +
-    "總費用（含手續費）：" + Math.round(total).toLocaleString() + " 元";
-}
-
-/* FAQ 展開 */
-const faqItems = document.querySelectorAll(".faq-item");
-faqItems.forEach(item => {
-  const header = item.querySelector(".faq-he
