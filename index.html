@@ -8,40 +8,38 @@
 <style>
   body { margin:0; font-family:"Microsoft JhengHei",sans-serif; background:#f6fbff; color:#222; }
 
+  /* ===== Header（已壓縮高度）===== */
   header {
     background:white;
     border-bottom:1px solid #e5eaf0;
-    padding:12px 0;
-    position:sticky;top:0;z-index:30;
+    padding:4px 0; /* ⭐降低上方空白 */
+    position:sticky;
+    top:0;
+    z-index:30;
   }
 
   .nav {
     max-width:900px;
     margin:auto;
     display:flex;
-    justify-content:space-between;
+    justify-content:flex-start;
     align-items:center;
-    padding:0 20px;
+    padding:0 16px;
+    gap:20px;
   }
 
-  /* ⭐⭐⭐ 極大 LOGO：140px ⭐⭐⭐ */
+  /* ===== Logo（極大但不會推開版面）===== */
   .brand img {
-    height:140px;
+    height:110px; /* ⭐極大版 */
     width:auto;
+    display:block;
   }
 
-  .brand {
-    display:flex;
-    align-items:center;
-    gap:10px;
-    text-decoration:none;
-  }
-
-  nav a {
-    margin-left:18px;
-    text-decoration:none;
-    color:#6b7585;
-    font-weight:600;
+  nav a { 
+    margin-left:18px; 
+    text-decoration:none; 
+    color:#6b7585; 
+    font-weight:600; 
   }
   nav a:hover { color:#2f9fff; }
 
@@ -50,7 +48,7 @@
   .banner img {
     width:100%;
     border-radius:12px;
-    margin-top:20px;
+    margin-top:16px;
     box-shadow:0 4px 16px rgba(0,0,0,0.08);
   }
 
@@ -64,11 +62,10 @@
 
   h2 { margin-top:0; }
 
+  .calc-group { margin-bottom:16px; }
   input {
-    width:100%;
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:6px;
+    width:100%; padding:12px;
+    border:1px solid #ccc; border-radius:6px;
     font-size:1rem;
   }
 
@@ -80,6 +77,7 @@
     border-radius:6px;
     font-size:1rem;
     font-weight:700;
+    width:100%;
   }
 
   .result-box {
@@ -95,8 +93,7 @@
     text-align:center; color:#888; font-size:0.9rem; padding:40px 0;
   }
 
-  /* ⭐ 圓形白色浮動按鈕 ⭐ */
-
+  /* ===== 浮動圓形按鈕（LINE + 電話）===== */
   .floating-wrap {
     position:fixed;
     right:18px;
@@ -108,50 +105,49 @@
   }
 
   .float-btn {
-    width:62px;
-    height:62px;
-    background:white;
+    background:#003366;
+    color:white;
+    width:68px;
+    height:68px;
     border-radius:50%;
     display:flex;
     justify-content:center;
     align-items:center;
-    box-shadow:0 4px 16px rgba(0,0,0,0.22);
     text-decoration:none;
-
-    animation: floatUpDown 3s ease-in-out infinite,
-               shake 5s infinite;
-  }
-
-  .float-btn img {
-    width:32px;
-    height:32px;
+    font-size:26px;
+    font-weight:bold;
+    box-shadow:0 4px 16px rgba(0,0,0,0.25);
+    animation: floatUpDown 3s ease-in-out infinite, shake 5s infinite;
   }
 
   .float-btn.call {
-    font-size:30px;
-    color:#003366;
+    background:#001c44;
+  }
+
+  .line-icon {
+    width:34px;
   }
 
   @keyframes floatUpDown {
-    0% { transform:translateY(0); }
-    50% { transform:translateY(-6px); }
-    100% { transform:translateY(0); }
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
   }
 
   @keyframes shake {
-    0%,90%,100% { transform:translateX(0); }
-    92% { transform:translateX(-2px); }
-    94% { transform:translateX(2px); }
-    96% { transform:translateX(-2px); }
-    98% { transform:translateX(2px); }
+    0%, 90%, 100% { transform: translateX(0); }
+    92% { transform: translateX(-2px); }
+    94% { transform: translateX(2px); }
+    96% { transform: translateX(-2px); }
+    98% { transform: translateX(2px); }
   }
 
-  /* 📱 手機 LOGO 也變大（120px） */
+  /* ===== 手機最佳化 ===== */
   @media (max-width:600px) {
-    .brand img { height:120px; }
+    header { padding:2px 0; } /* ⭐更貼頂 */
+    .brand img { height:90px; }
     nav { display:none; }
   }
-
 </style>
 </head>
 
@@ -162,39 +158,37 @@
     <a class="brand" href="#">
       <img src="logo.png" alt="Wantong Logo">
     </a>
-
-    <nav>
-      <a href="#calc">試算器</a>
-      <a href="#faq">FAQ</a>
-    </nav>
   </div>
 </header>
 
 <div class="container">
 
+  <!-- Banner -->
   <div class="banner">
     <img src="banner.png" alt="banner" />
   </div>
 
+  <!-- 試算器 -->
   <section id="calc">
     <h2>Wantong 個人信用貸試算</h2>
     <p>年利率固定 <strong>16%</strong>、手續費 <strong>6%</strong></p>
 
-    <div>
+    <div class="calc-group">
       <label>借款金額（NT$）</label>
       <input id="loanAmount" type="number" placeholder="請輸入金額，例如 100000">
     </div>
 
-    <div style="margin-top:14px;">
+    <div class="calc-group">
       <label>期數（月）</label>
       <input id="months" type="number" placeholder="例如 12、24、36">
     </div>
 
-    <button style="margin-top:18px;" onclick="calculate()">開始試算</button>
+    <button onclick="calculate()">開始試算</button>
 
     <div id="result" class="result-box" style="display:none; margin-top:20px;"></div>
   </section>
 
+  <!-- FAQ -->
   <section id="faq">
     <h2>常見問題</h2>
     <p><strong>Q：利率是多少？</strong><br>固定年利率 16%，手續費 6%。</p>
@@ -207,18 +201,21 @@
 
 </div>
 
-<!-- 浮動按鈕 -->
+<!-- 浮動圓形按鈕 -->
 <div class="floating-wrap">
 
+  <!-- LINE 圓形按鈕 -->
   <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="float-btn">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" class="line-icon">
   </a>
 
+  <!-- 電話圓形按鈕 -->
   <a href="tel:0966857279" class="float-btn call">
     📞
   </a>
 
 </div>
+
 
 <script>
 function calculate() {
