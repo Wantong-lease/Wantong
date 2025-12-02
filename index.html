@@ -11,7 +11,7 @@
   header {
     background:white;
     border-bottom:1px solid #e5eaf0;
-    padding:6px 0; /* 保持窄白邊 */
+    padding:2px 0;  /* ★★★ 白邊更窄 ★★★ */
     position:sticky;top:0;z-index:30;
   }
   .nav {
@@ -20,10 +20,10 @@
     display:flex;
     justify-content:flex-start;
     align-items:center;
-    padding:0 14px; /* 讓 LOGO 更靠左 */
+    padding:0 14px;
   }
 
-  /* Logo → B 方案：140px */
+  /* Logo：140px */
   .brand img {
     height:140px;
     width:auto;
@@ -91,9 +91,9 @@
     text-align:center; color:#888; font-size:0.9rem; padding:40px 0;
   }
 
-  /* ————————————————————————————————
-       圓形浮動按鈕（深藍色）
-     ———————————————————————————————— */
+  /* ——————————————————————
+       圓形浮動按鈕
+     —————————————————————— */
 
   .floating-wrap {
     position:fixed;
@@ -115,7 +115,6 @@
     align-items:center;
     text-decoration:none;
     box-shadow:0 4px 16px rgba(0,0,0,0.25);
-
     animation: floatUpDown 3s ease-in-out infinite,
                shake 5s infinite;
   }
@@ -146,7 +145,7 @@
 
   /* Mobile */
   @media (max-width:600px) {
-    .brand img { height:110px; } /* 手機版適度縮小但仍顯眼 */
+    .brand img { height:110px; } 
     nav { display:none; }
     .float-btn {
       width:60px;
@@ -170,12 +169,10 @@
 
 <div class="container">
 
-  <!-- Banner -->
   <div class="banner">
     <img src="banner.png" alt="banner" />
   </div>
 
-  <!-- 試算器 -->
   <section id="calc">
     <h2>Wantong 個人信用貸試算</h2>
     <p>年利率固定 <strong>16%</strong>、手續費 <strong>6%</strong></p>
@@ -195,7 +192,6 @@
     <div id="result" class="result-box" style="display:none; margin-top:20px;"></div>
   </section>
 
-  <!-- FAQ -->
   <section id="faq">
     <h2>常見問題</h2>
     <p><strong>Q：利率是多少？</strong><br>固定年利率 16%，手續費 6%。</p>
@@ -208,19 +204,13 @@
 
 </div>
 
-<!-- ⭐⭐⭐ 右下角圓形深藍按鈕 ⭐⭐⭐ -->
 <div class="floating-wrap">
-  
-  <!-- LINE -->
   <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="float-btn">
     <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" class="line-icon">
   </a>
 
-  <!-- 電話 -->
   <a href="tel:0966857279" class="float-btn call">📞</a>
-
 </div>
-
 
 <script>
 function calculate() {
