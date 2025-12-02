@@ -73,6 +73,47 @@
     font-weight:700;
   }
 
+  footer { text-align:center; color:#888; font-size:0.9rem; padding:40px 0; }
+
+  /* 浮動按鈕容器 */
+  .floating-wrap {
+    position:fixed;
+    right:16px;
+    bottom:16px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:200;
+  }
+
+  .floating-wrap a {
+    text-decoration: none !important;
+    outline: none !important;
+    border: none !important;
+  }
+  .float-btn {
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:transparent !important;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 16px rgba(0,0,0,0.12);
+  }
+  .float-btn img {
+    display:block;
+    width:34px;
+    height:34px;
+    object-fit:contain;
+  }
+  .float-btn.call span {
+    display:inline-block;
+    font-size:26px;
+    line-height:1;
+    color:#001c44;
+  }
+
   /* FAQ */
   .faq-item {
     border: 1px solid #e5edf7;
@@ -109,73 +150,51 @@
     .brand img { height:70px !important; }
   }
 
-  /* 公司資訊（移到最底部） */
-  .company-info {
-    background:white;
-    padding:22px;
-    border-radius:10px;
-    border:1px solid #e8eff5;
-    margin-top:40px;
-    line-height:1.7;
-    color:#333;
-    max-width:860px;
-    margin-left:auto;
-    margin-right:auto;
+  /* ————————————————
+     高質感金融機構風「公司資訊」
+     ———————————————— */
+  .company-info-wrap {
+    width: 100%;
+    background:#e9f1ff;
+    padding: 40px 0;
+    margin-top: 40px;
   }
-  .company-info h3 {
-    margin-top:0;
-    color:#003366;
-    font-size:1.3rem;
-    font-weight:800;
+
+  .company-info-card {
+    max-width: 860px;
+    margin: auto;
+    background: white;
+    padding: 26px 30px;
+    border-radius: 12px;
+    border: 1px solid #d6e2f3;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    color: #333;
+    line-height: 1.7;
   }
-  .legal-note {
-    margin-top:12px;
+
+  .company-info-card h3 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    color: #003366;
+    font-size: 1.35rem;
+    font-weight: 800;
+  }
+
+  .company-info-card p {
+    margin: 6px 0;
+    font-size: 1rem;
+    color:#2d3a4d;
+  }
+
+  .company-info-card .legal-note {
+    margin-top: 16px;
     background:#f6f9ff;
-    padding:12px 16px;
+    padding:14px 16px;
     border-radius:8px;
-    font-size:0.9rem;
-    color:#555;
+    font-size:0.92rem;
+    color:#4b5566;
   }
 
-  footer {
-    text-align:center;
-    color:#888;
-    font-size:0.9rem;
-    padding:30px 0 50px;
-  }
-
-  /* 浮動按鈕容器 */
-  .floating-wrap {
-    position:fixed;
-    right:16px;
-    bottom:16px;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    z-index:200;
-  }
-  .float-btn {
-    width:58px;
-    height:58px;
-    border-radius:50%;
-    background:transparent !important;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 4px 16px rgba(0,0,0,0.12);
-  }
-  .float-btn img {
-    display:block;
-    width:34px;
-    height:34px;
-    object-fit:contain;
-  }
-  .float-btn.call span {
-    display:inline-block;
-    font-size:26px;
-    line-height:1;
-    color:#001c44;
-  }
 </style>
 </head>
 
@@ -215,34 +234,30 @@
 
   <section id="faq">
     <h2>常見問題</h2>
-
     <div class="faq-item"><div class="faq-header">利率是多少？<span class="faq-arrow">▼</span></div><div class="faq-content">固定年利率 16%，手續費 6%。</div></div>
-
     <div class="faq-item"><div class="faq-header">撥款時間？<span class="faq-arrow">▼</span></div><div class="faq-content">文件齊全並核准後，最快 1 天即可撥款。</div></div>
-
     <div class="faq-item"><div class="faq-header">申請需要哪些文件？<span class="faq-arrow">▼</span></div><div class="faq-content">身分證明、薪轉/收入證明、金融資料即可。</div></div>
-
     <div class="faq-item"><div class="faq-header">需要保人嗎？<span class="faq-arrow">▼</span></div><div class="faq-content">不需要保人，單獨申請即可審核。</div></div>
-
     <div class="faq-item"><div class="faq-header">是否會查聯徵？<span class="faq-arrow">▼</span></div><div class="faq-content">會進行聯徵評分，以確認信用狀況與還款能力。</div></div>
-
     <div class="faq-item"><div class="faq-header">可以提前結清嗎？<span class="faq-arrow">▼</span></div><div class="faq-content">可以，會重新計算尚未產生的利息。</div></div>
-
     <div class="faq-item"><div class="faq-header">可申貸金額範圍？<span class="faq-arrow">▼</span></div><div class="faq-content">最低 3 萬起，最高依個人信用評分決定。</div></div>
-
   </section>
+
 </div>
 
-<!-- === 公司資訊已移至底部 === -->
-<section class="company-info">
-  <h3>公司資訊</h3>
-  <p>公司名稱：萬通租賃有限公司</p>
-  <p>統一編號：60513090</p>
-  <p>公司電話：0901-067-728</p>
+<!-- ⭐ 高質感金融風公司資訊（已取代舊版本） -->
+<section class="company-info-wrap">
+  <div class="company-info-card">
+    <h3>公司資訊</h3>
 
-  <div class="legal-note">
-    本公司依法登記成立，並依相關法令經營。<br>
-    所有貸款／租賃方案皆依實際審核為準。
+    <p>公司名稱：萬通租賃有限公司</p>
+    <p>統一編號：60513090</p>
+    <p>公司電話：0901-067-728</p>
+
+    <div class="legal-note">
+      本公司依法登記成立，並依相關法令經營。<br>
+      所有貸款／租賃方案皆依實際審核為準。
+    </div>
   </div>
 </section>
 
