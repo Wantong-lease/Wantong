@@ -15,86 +15,66 @@
     position:sticky;top:0;z-index:30;
   }
   .nav {
-    max-width:860px;
+    max-width:900px;
     margin:auto;
     display:flex;
-    justify-content:space-between;
+    justify-content:flex-start;
     align-items:center;
-    padding:0 14px;
+    padding:0 10px;
   }
 
-  /* Logo 尺寸（適中高質感） */
+  /* Logo（縮小白邊 + 適中大小） */
   .brand img {
-    height:78px;
+    height:52px;
     width:auto;
   }
 
-  nav a { margin-left:18px; text-decoration:none; color:#6b7585; font-weight:600; }
-  nav a:hover { color:#2f9fff; }
+  .container { max-width:900px; margin:auto; padding:20px; }
 
-  /* 主容器白邊更窄 */
-  .container { max-width:860px; margin:auto; padding:10px 14px; }
-
-  .banner-inner {
+  /* Banner 區塊 */
+  .banner {
     position:relative;
+    width:100%;
+    margin-top:10px;
   }
 
   .banner img {
     width:100%;
     border-radius:12px;
-    margin-top:12px;
+    display:block;
     box-shadow:0 4px 16px rgba(0,0,0,0.08);
   }
 
-  /* Banner 置中按鈕 */
+  /* ⭐ 立即申請按鈕重疊 Banner 圖片上 ⭐ */
   .banner-btn-wrap {
     position:absolute;
-    bottom:20px;
     left:50%;
+    bottom:45px; /* 調整按鈕高度（與圖上白色按鈕完美重疊） */
     transform:translateX(-50%);
+    z-index:10;
   }
 
   .banner-btn {
     background:#003366;
-    padding:12px 34px;
+    padding:14px 40px;
     color:white;
     text-decoration:none;
-    font-size:1.1rem;
+    font-size:1.2rem;
     font-weight:700;
-    border-radius:10px;
-    box-shadow:0 4px 14px rgba(0,0,0,0.25);
+    border-radius:50px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.25);
     display:inline-block;
   }
 
-  .banner-btn:hover { opacity:.9; }
-
+  /* SECTION */
   section {
     background:white;
     border-radius:10px;
     padding:24px;
-    margin:22px 0;
+    margin:26px 0;
     border:1px solid #e8eff5;
   }
 
-  h2 { margin-top:0; }
-
-  /* FAQ 高質感樣式 */
-  .faq-item {
-    background:#f8fbff;
-    padding:16px 18px;
-    border-radius:10px;
-    margin:12px 0;
-    box-shadow:0 2px 8px rgba(0,0,0,0.05);
-    border-left:4px solid #2f75ff;
-  }
-
-  .faq-item strong {
-    display:block;
-    font-size:1.05rem;
-    color:#003366;
-  }
-
-  /* 試算器 */
   .calc-group { margin-bottom:16px; }
   input {
     width:100%; padding:12px;
@@ -139,41 +119,32 @@
   .float-btn {
     background:#003366;
     color:white;
-    padding:14px 20px;
-    border-radius:50px;
-    font-size:1.05rem;
+    padding:16px;
+    border-radius:50%;
+    font-size:1.1rem;
     font-weight:700;
     text-decoration:none;
     box-shadow:0 4px 16px rgba(0,0,0,0.25);
+    width:60px;
+    height:60px;
     display:flex;
+    justify-content:center;
     align-items:center;
-    gap:10px;
-    animation: floatUpDown 3s ease-in-out infinite, shake 5s infinite;
   }
 
-  .float-btn.call { background:#001c44; }
-
-  @keyframes floatUpDown {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0); }
+  .float-btn.call {
+    background:#001c44;
   }
 
-  @keyframes shake {
-    0%, 90%, 100% { transform: translateX(0); }
-    92% { transform: translateX(-2px); }
-    94% { transform: translateX(2px); }
-    96% { transform: translateX(-2px); }
-    98% { transform: translateX(2px); }
+  .line-icon {
+    width:28px;
   }
-
-  .line-icon { width:26px; }
 
   @media (max-width:600px) {
-    .brand img { height:62px; }
-    nav { display:none; }
-    .float-btn { font-size:0.95rem; padding:12px 16px; }
-    .line-icon { width:22px; }
+    .brand img { height:45px; }
+    .banner-btn { font-size:1rem; padding:12px 30px; }
+    .float-btn { width:54px; height:54px; }
+    .line-icon { width:24px; }
   }
 
 </style>
@@ -186,11 +157,6 @@
     <a class="brand" href="#">
       <img src="logo.png" alt="Wantong Logo">
     </a>
-
-    <nav>
-      <a href="#calc">試算器</a>
-      <a href="#faq">FAQ</a>
-    </nav>
   </div>
 </header>
 
@@ -198,15 +164,12 @@
 
   <!-- Banner -->
   <div class="banner">
-    <div class="banner-inner">
-      <img src="banner.png" alt="banner" />
-
-      <!-- Banner 按鈕（只 1 顆） -->
-      <div class="banner-btn-wrap">
-        <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="banner-btn">
-          立即申請
-        </a>
-      </div>
+    <img src="banner.png" alt="banner" />
+    <!-- ⭐ 按鈕直接覆蓋 Banner 圖片的「立即試算月付金額」位置 ⭐ -->
+    <div class="banner-btn-wrap">
+      <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="banner-btn">
+        立即申請
+      </a>
     </div>
   </div>
 
@@ -234,35 +197,13 @@
   <section id="faq">
     <h2>常見問題</h2>
 
-    <div class="faq-item">
-      <strong>Q：利率是多少？</strong>
-      固定年利率 16%，手續費 6%。
-    </div>
-
-    <div class="faq-item">
-      <strong>Q：最快多久撥款？</strong>
-      文件齊全最快 1 天撥款。
-    </div>
-
-    <div class="faq-item">
-      <strong>Q：需要保人嗎？</strong>
-      不需要保人，採個人信用審核。
-    </div>
-
-    <div class="faq-item">
-      <strong>Q：有哪些適用對象？</strong>
-      上班族、自由業、SOHO、接案者皆可申請。
-    </div>
-
-    <div class="faq-item">
-      <strong>Q：提前清償會有費用嗎？</strong>
-      依照合約規範，通常不會額外收取提前清償違約金。
-    </div>
-
-    <div class="faq-item">
-      <strong>Q：需要提供哪些文件？</strong>
-      身分證、健保卡、薪轉證明或財力證明。
-    </div>
+    <p><strong>Q：利率是多少？</strong><br>固定年利率 16%，手續費 6%。</p>
+    <p><strong>Q：多久可以撥款？</strong><br>最快 1 天撥款。</p>
+    <p><strong>Q：額度如何決定？</strong><br>依照個人信用與收入評分。</p>
+    <p><strong>Q：需要提供什麼資料？</strong><br>雙證件、工作證明、財力資料。</p>
+    <p><strong>Q：是否會查聯徵？</strong><br>會，並保持最小查詢次數。</p>
+    <p><strong>Q：是否可以提前清償？</strong><br>可提前清償，無違約金。</p>
+    <p><strong>Q：工作不固定可以申請嗎？</strong><br>可依個案評估。</p>
 
   </section>
 
@@ -272,18 +213,16 @@
 
 </div>
 
-<!-- 右下角浮動按鈕 -->
+
+<!-- 浮動按鈕 -->
 <div class="floating-wrap">
-  
   <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="float-btn">
     <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" class="line-icon">
-    LINE 申請
   </a>
 
   <a href="tel:0966857279" class="float-btn call">
-    📞 來電洽詢
+    📞
   </a>
-
 </div>
 
 
