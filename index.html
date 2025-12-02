@@ -15,51 +15,48 @@
     position:sticky;top:0;z-index:30;
   }
   .nav {
-    max-width:860px;
+    max-width:900px;
     margin:auto;
     display:flex;
-    justify-content:space-between;
+    justify-content:flex-start;
     align-items:center;
-    padding:0 14px;
+    padding:0 10px;
   }
 
-  /* Logo（含手機自動縮小）*/
+  /* Logo（桌機正常／手機縮小） */
   .brand img {
-    height:110px;
+    height:52px;
     width:auto;
   }
-
-  @media (max-width:600px){
-    .brand img {
-      height:72px;
-    }
+  @media (max-width:600px) {
+    .brand img { height:38px; }
   }
 
-  nav a { margin-left:18px; text-decoration:none; color:#6b7585; font-weight:600; }
-  nav a:hover { color:#2f9fff; }
+  .container { max-width:900px; margin:auto; padding:20px; }
 
-  .container {
-    max-width:860px;
-    margin:auto;
-    padding:10px 14px;
+  /* Banner 區塊 */
+  .banner {
+    position:relative;
+    width:100%;
+    margin-top:10px;
   }
 
   .banner img {
     width:100%;
     border-radius:12px;
-    margin-top:14px;
+    display:block;
     box-shadow:0 4px 16px rgba(0,0,0,0.08);
   }
+
+  /* ※ 按鈕取消，因此移除 banner-btn-wrap */
 
   section {
     background:white;
     border-radius:10px;
     padding:24px;
-    margin:22px 0;
+    margin:26px 0;
     border:1px solid #e8eff5;
   }
-
-  h2 { margin-top:0; }
 
   .calc-group { margin-bottom:16px; }
   input {
@@ -91,122 +88,51 @@
     text-align:center; color:#888; font-size:0.9rem; padding:40px 0;
   }
 
-  /* ————————————————————————————————
-       浮動圓形按鈕（LINE：白色玻璃）
-     ———————————————————————————————— */
+  /* 浮動按鈕區 */
   .floating-wrap {
     position:fixed;
-    right:16px;
-    bottom:16px;
+    right:18px;
+    bottom:18px;
     display:flex;
     flex-direction:column;
-    gap:12px;
+    gap:14px;
     z-index:200;
   }
 
-  /* LINE 按鈕玻璃感 */
-  .float-btn.line {
-    width:60px;
-    height:60px;
+  /* 高級玻璃風格按鈕 */
+  .float-btn {
+    background:rgba(255,255,255,0.25);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    padding:14px;
     border-radius:50%;
-    backdrop-filter: blur(12px);
-    background: rgba(255,255,255,0.22);
-    border:1px solid rgba(255,255,255,0.35);
+    width:64px;
+    height:64px;
     display:flex;
-    align-items:center;
     justify-content:center;
-    box-shadow:0 6px 18px rgba(0,0,0,0.25);
-    animation: floatUpDown 3s ease-in-out infinite, shake 5s infinite;
+    align-items:center;
+    text-decoration:none;
+    box-shadow:0 6px 20px rgba(0,0,0,0.18);
   }
 
+  /* LINE — 保留綠底原圖，不反白 */
   .float-btn.line img {
     width:34px;
     height:34px;
+    object-fit:contain;
   }
 
-  /* 電話按鈕維持深藍 */
+  /* 電話按鈕 */
   .float-btn.call {
-    width:58px;
-    height:58px;
-    border-radius:50%;
-    background:#001c44;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 4px 16px rgba(0,0,0,0.25);
-    animation: floatUpDown 3s ease-in-out infinite, shake 5s infinite;
-  }
-
-  .float-btn.call span {
+    font-size:26px;
+    background:rgba(0,30,80,0.85);
     color:white;
-    font-size:30px;
   }
 
-  @keyframes floatUpDown {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0); }
+  @media (max-width:600px) {
+    .float-btn { width:58px; height:58px; }
+    .float-btn.line img { width:30px; height:30px; }
   }
-
-  @keyframes shake {
-    0%, 90%, 100% { transform: translateX(0); }
-    92% { transform: translateX(-2px); }
-    94% { transform: translateX(2px); }
-    96% { transform: translateX(-2px); }
-    98% { transform: translateX(2px); }
-  }
-
-  /* ————————————————————————————————
-       FAQ 高質感
-     ———————————————————————————————— */
-  .faq-item {
-    border: 1px solid #e5edf7;
-    border-radius: 10px;
-    margin-bottom: 12px;
-    background: #ffffff;
-    overflow: hidden;
-    transition: box-shadow 0.2s;
-  }
-
-  .faq-header {
-    padding: 16px 18px;
-    cursor: pointer;
-    font-weight: 700;
-    color: #003366;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .faq-header:hover {
-    background: #f3f8ff;
-  }
-
-  .faq-arrow {
-    transition: 0.3s;
-  }
-
-  .faq-content {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 18px;
-    color: #444;
-    line-height: 1.6;
-    transition: max-height 0.35s ease, padding 0.3s;
-  }
-
-  .faq-item.active {
-    box-shadow:0 4px 16px rgba(0,0,0,0.08);
-  }
-
-  .faq-item.active .faq-content {
-    padding:14px 18px 18px;
-  }
-
-  .faq-item.active .faq-arrow {
-    transform: rotate(180deg);
-  }
-
 </style>
 </head>
 
@@ -217,11 +143,6 @@
     <a class="brand" href="#">
       <img src="logo.png" alt="Wantong Logo">
     </a>
-
-    <nav>
-      <a href="#calc">試算器</a>
-      <a href="#faq">FAQ</a>
-    </nav>
   </div>
 </header>
 
@@ -256,40 +177,13 @@
   <section id="faq">
     <h2>常見問題</h2>
 
-    <div class="faq-item">
-      <div class="faq-header">利率是多少？<span class="faq-arrow">▼</span></div>
-      <div class="faq-content">固定年利率 16%，手續費 6%。</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-header">撥款時間？<span class="faq-arrow">▼</span></div>
-      <div class="faq-content">文件齊全後最快 1 天撥款。</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-header">需要哪些文件？<span class="faq-arrow">▼</span></div>
-      <div class="faq-content">身分證、薪轉或收入證明即可。</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-header">需要保人嗎？<span class="faq-arrow">▼</span></div>
-      <div class="faq-content">不需要，單獨申請即可。</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-header">會查聯徵嗎？<span class="faq-arrow">▼</span></div>
-      <div class="faq-content">會進行聯徵評分查詢。</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-header">可否提前清償？<span class="faq-arrow">▼</span></div>
-      <div class="faq-content">可以，僅需支付已產生利息。</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-header">可貸金額多少？<span class="faq-arrow">▼</span></div>
-      <div class="faq-content">3 萬起，最高依信用評分核定。</div>
-    </div>
+    <p><strong>Q：利率是多少？</strong><br>固定年利率 16%，手續費 6%。</p>
+    <p><strong>Q：多久可以撥款？</strong><br>最快 1 天撥款。</p>
+    <p><strong>Q：額度如何決定？</strong><br>依照個人信用與收入評分。</p>
+    <p><strong>Q：需要提供什麼資料？</strong><br>雙證件、工作證明、財力資料。</p>
+    <p><strong>Q：是否會查聯徵？</strong><br>會，並保持最小查詢次數。</p>
+    <p><strong>Q：是否可以提前清償？</strong><br>可提前清償，無違約金。</p>
+    <p><strong>Q：工作不固定可以申請嗎？</strong><br>可依個案評估。</p>
 
   </section>
 
@@ -302,17 +196,14 @@
 <!-- 浮動按鈕 -->
 <div class="floating-wrap">
 
-  <!-- ★ 最終版高質感 LINE 圓形按鈕（白色 SVG） -->
+  <!-- 保留原本綠底的 LINE 圖示 -->
   <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="float-btn line">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/LINE_logo_white.svg" alt="LINE">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE">
   </a>
 
-  <!-- 電話保持不變 -->
-  <a href="tel:0966857279" class="float-btn call">
-    <span>📞</span>
-  </a>
-
+  <a href="tel:0966857279" class="float-btn call">📞</a>
 </div>
+
 
 <script>
 function calculate() {
@@ -334,30 +225,6 @@ function calculate() {
     "每月應還：" + Math.round(monthly).toLocaleString() + " 元<br>" +
     "總費用（含手續費）：" + Math.round(total).toLocaleString() + " 元";
 }
-
-/* FAQ */
-const faqItems = document.querySelectorAll(".faq-item");
-faqItems.forEach(item => {
-  const header = item.querySelector(".faq-header");
-  header.addEventListener("click", () => {
-
-    faqItems.forEach(i => {
-      if (i !== item) {
-        i.classList.remove("active");
-        i.querySelector(".faq-content").style.maxHeight = null;
-      }
-    });
-
-    item.classList.toggle("active");
-    const content = item.querySelector(".faq-content");
-
-    if (item.classList.contains("active")) {
-      content.style.maxHeight = content.scrollHeight + "px";
-    } else {
-      content.style.maxHeight = null;
-    }
-  });
-});
 </script>
 
 </body>
