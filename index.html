@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport"content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Wantong 個人信用貸</title>
 
 <style>
@@ -11,9 +11,10 @@
   header {
     background:white;
     border-bottom:1px solid #e5eaf0;
-    padding:10px 0;
+    padding:12px 0;
     position:sticky;top:0;z-index:30;
   }
+
   .nav {
     max-width:900px;
     margin:auto;
@@ -23,9 +24,9 @@
     padding:0 20px;
   }
 
-  /* ✅ LOGO 再加大：105px */
+  /* ⭐⭐⭐ 極大 LOGO：140px ⭐⭐⭐ */
   .brand img {
-    height:105px;
+    height:140px;
     width:auto;
   }
 
@@ -34,12 +35,14 @@
     align-items:center;
     gap:10px;
     text-decoration:none;
-    color:#111;
-    font-weight:700;
-    font-size:1.4rem;
   }
 
-  nav a { margin-left:18px; text-decoration:none; color:#6b7585; font-weight:600; }
+  nav a {
+    margin-left:18px;
+    text-decoration:none;
+    color:#6b7585;
+    font-weight:600;
+  }
   nav a:hover { color:#2f9fff; }
 
   .container { max-width:900px; margin:auto; padding:20px; }
@@ -61,9 +64,9 @@
 
   h2 { margin-top:0; }
 
-  .calc-group { margin-bottom:16px; }
   input {
-    width:100%; padding:12px;
+    width:100%;
+    padding:12px;
     border:1px solid #ccc;
     border-radius:6px;
     font-size:1rem;
@@ -143,9 +146,10 @@
     98% { transform:translateX(2px); }
   }
 
-  /* 📱 手機 LOGO 也變大 70 → 90px */
+  /* 📱 手機 LOGO 也變大（120px） */
   @media (max-width:600px) {
-    .brand img { height:90px; }
+    .brand img { height:120px; }
+    nav { display:none; }
   }
 
 </style>
@@ -176,17 +180,17 @@
     <h2>Wantong 個人信用貸試算</h2>
     <p>年利率固定 <strong>16%</strong>、手續費 <strong>6%</strong></p>
 
-    <div class="calc-group">
+    <div>
       <label>借款金額（NT$）</label>
       <input id="loanAmount" type="number" placeholder="請輸入金額，例如 100000">
     </div>
 
-    <div class="calc-group">
+    <div style="margin-top:14px;">
       <label>期數（月）</label>
       <input id="months" type="number" placeholder="例如 12、24、36">
     </div>
 
-    <button onclick="calculate()">開始試算</button>
+    <button style="margin-top:18px;" onclick="calculate()">開始試算</button>
 
     <div id="result" class="result-box" style="display:none; margin-top:20px;"></div>
   </section>
@@ -205,6 +209,7 @@
 
 <!-- 浮動按鈕 -->
 <div class="floating-wrap">
+
   <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="float-btn">
     <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg">
   </a>
@@ -212,6 +217,7 @@
   <a href="tel:0966857279" class="float-btn call">
     📞
   </a>
+
 </div>
 
 <script>
