@@ -23,20 +23,15 @@
     padding:0 14px;
   }
 
-  /* ⭐ Logo B 版本（95px） */
+  /* Logo（電腦版）*/
   .brand img {
-    height:95px;
+    height:95px;   /* ⭐ 你目前要的大小 */
     width:auto;
   }
 
   .brand {
     display:flex;
     align-items:center;
-    gap:10px;
-    text-decoration:none;
-    color:#111;
-    font-weight:700;
-    font-size:1.4rem;
   }
 
   nav a { margin-left:18px; text-decoration:none; color:#6b7585; font-weight:600; }
@@ -95,7 +90,9 @@
     text-align:center; color:#888; font-size:0.9rem; padding:40px 0;
   }
 
-  /* 浮動圓形按鈕（深藍色） */
+  /* ————————————————————————————————
+       浮動圓形按鈕（深藍色）
+     ———————————————————————————————— */
   .floating-wrap {
     position:fixed;
     right:16px;
@@ -115,7 +112,6 @@
     align-items:center;
     justify-content:center;
     box-shadow:0 4px 16px rgba(0,0,0,0.25);
-    animation: floatUpDown 3s ease-in-out infinite, shake 5s infinite;
   }
   .float-btn img, .float-btn span {
     width:32px;
@@ -126,21 +122,9 @@
 
   .float-btn.call { background:#001c44; }
 
-  @keyframes floatUpDown {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0); }
-  }
-
-  @keyframes shake {
-    0%, 90%, 100% { transform: translateX(0); }
-    92% { transform: translateX(-2px); }
-    94% { transform: translateX(2px); }
-    96% { transform: translateX(-2px); }
-    98% { transform: translateX(2px); }
-  }
-
-  /* 高質感 FAQ */
+  /* ————————————————————————————————
+       高質感 FAQ 區塊
+     ———————————————————————————————— */
   .faq-item {
     border: 1px solid #e5edf7;
     border-radius: 10px;
@@ -164,9 +148,7 @@
     background: #f3f8ff;
   }
 
-  .faq-arrow {
-    transition: 0.3s;
-  }
+  .faq-arrow { transition: 0.3s; }
 
   .faq-content {
     max-height: 0;
@@ -181,13 +163,18 @@
     box-shadow:0 4px 16px rgba(0,0,0,0.08);
   }
 
-  .faq-item.active .faq-content {
-    padding:14px 18px 18px;
+  .faq-item.active .faq-content { padding:14px 18px 18px; }
+  .faq-item.active .faq-arrow { transform: rotate(180deg); }
+
+  /* ————————————————————————————————
+       ⭐ 手機版 Logo 縮小 70px ⭐
+     ———————————————————————————————— */
+  @media (max-width:600px) {
+    .brand img {
+      height:70px !important; /* 手機版縮小 */
+    }
   }
 
-  .faq-item.active .faq-arrow {
-    transform: rotate(180deg);
-  }
 </style>
 </head>
 
@@ -280,19 +267,15 @@
 
 </div>
 
-<!-- 浮動圓形按鈕（LINE / 電話）-->
+<!-- 浮動圓形按鈕 -->
 <div class="floating-wrap">
-
-  <!-- LINE -->
   <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="float-btn">
     <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg">
   </a>
 
-  <!-- 電話 -->
   <a href="tel:0966857279" class="float-btn call">
     <span>📞</span>
   </a>
-
 </div>
 
 <script>
@@ -316,7 +299,7 @@ function calculate() {
     "總費用（含手續費）：" + Math.round(total).toLocaleString() + " 元";
 }
 
-/* FAQ 展開互動 */
+/* FAQ 展開 */
 const faqItems = document.querySelectorAll(".faq-item");
 
 faqItems.forEach(item => {
