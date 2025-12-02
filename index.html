@@ -75,7 +75,7 @@
 
   footer { text-align:center; color:#888; font-size:0.9rem; padding:40px 0; }
 
-  /* 浮動按鈕 */
+  /* 浮動按鈕容器 */
   .floating-wrap {
     position:fixed;
     right:16px;
@@ -86,6 +86,13 @@
     z-index:200;
   }
 
+  /* 浮動按鈕（外觀維持透明圓形，但修正連結底線與圖示顯示） */
+  .floating-wrap a {
+    text-decoration: none !important;   /* <- 取消連結底線 */
+    outline: none !important;
+    border: none !important;
+  }
+
   .float-btn {
     width:58px;
     height:58px;
@@ -94,23 +101,23 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    box-shadow:0 4px 16px rgba(0,0,0,0.25);
+    box-shadow:0 4px 16px rgba(0,0,0,0.12);
   }
 
-  /* ⭐ 修正電話圖示不完整（唯一修改處） */
+  /* 圖示尺寸顯示穩定 */
   .float-btn img {
-    width:32px;
-    height:32px;
+    display:block;            /* 避免 inline img 產生 baseline 底線 */
+    width:34px;
+    height:34px;
+    object-fit:contain;
   }
 
-  .float-btn span {
-    font-size:34px;
+  .float-btn.call span {
+    display:inline-block;
+    font-size:26px;
     line-height:1;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    color:#001c44;
   }
-  /* ⭐ 修正結束 */
 
   /* FAQ */
   .faq-item {
@@ -159,7 +166,7 @@
 
 <header>
   <div class="nav">
-    <a class="brand" href="#"><img src="logo.png"></a>
+    <a class="brand" href="#"><img src="logo.png" alt="Wantong Logo"></a>
     <nav>
       <a href="#calc">試算器</a>
       <a href="#faq">FAQ</a>
@@ -168,7 +175,7 @@
 </header>
 
 <div class="container">
-  <div class="banner"><img src="banner.png"></div>
+  <div class="banner"><img src="banner.png" alt="banner"></div>
 
   <section id="calc">
     <h2>Wantong 個人信用貸試算</h2>
@@ -211,12 +218,15 @@
   <footer>© 2025 Wantong. All Rights Reserved.</footer>
 </div>
 
+<!-- 浮動圓形按鈕：LINE 與 電話 -->
 <div class="floating-wrap">
-  <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="float-btn">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg">
+  <!-- LINE (使用原綠色圖示來源) -->
+  <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="float-btn" aria-label="LINE 立即申請">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE">
   </a>
 
-  <a href="tel:0966857279" class="float-btn call">
+  <!-- 電話 (tel:) -->
+  <a href="tel:0966857279" class="float-btn call" aria-label="立即來電">
     <span>📞</span>
   </a>
 </div>
@@ -239,6 +249,7 @@ function calculate() {
     "總費用（含手續費）：" + Math.round(total).toLocaleString() + " 元";
 }
 
+/* FAQ 展開 */
 const faqItems = document.querySelectorAll(".faq-item");
 faqItems.forEach(item => {
   const header = item.querySelector(".faq-header");
@@ -249,10 +260,8 @@ faqItems.forEach(item => {
         i.querySelector(".faq-content").style.maxHeight = null;
       }
     });
-
     item.classList.toggle("active");
     const content = item.querySelector(".faq-content");
-
     if (item.classList.contains("active")) {
       content.style.maxHeight = content.scrollHeight + "px";
     } else {
