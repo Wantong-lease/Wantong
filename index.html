@@ -73,47 +73,6 @@
     font-weight:700;
   }
 
-  footer { text-align:center; color:#888; font-size:0.9rem; padding:40px 0; }
-
-  /* 浮動按鈕容器 */
-  .floating-wrap {
-    position:fixed;
-    right:16px;
-    bottom:16px;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    z-index:200;
-  }
-
-  .floating-wrap a {
-    text-decoration: none !important;
-    outline: none !important;
-    border: none !important;
-  }
-  .float-btn {
-    width:58px;
-    height:58px;
-    border-radius:50%;
-    background:transparent !important;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 4px 16px rgba(0,0,0,0.12);
-  }
-  .float-btn img {
-    display:block;
-    width:34px;
-    height:34px;
-    object-fit:contain;
-  }
-  .float-btn.call span {
-    display:inline-block;
-    font-size:26px;
-    line-height:1;
-    color:#001c44;
-  }
-
   /* FAQ */
   .faq-item {
     border: 1px solid #e5edf7;
@@ -150,15 +109,18 @@
     .brand img { height:70px !important; }
   }
 
-  /* 公司資訊 */
+  /* 公司資訊（移到最底部） */
   .company-info {
     background:white;
     padding:22px;
     border-radius:10px;
     border:1px solid #e8eff5;
-    margin-top:30px;
+    margin-top:40px;
     line-height:1.7;
     color:#333;
+    max-width:860px;
+    margin-left:auto;
+    margin-right:auto;
   }
   .company-info h3 {
     margin-top:0;
@@ -173,6 +135,46 @@
     border-radius:8px;
     font-size:0.9rem;
     color:#555;
+  }
+
+  footer {
+    text-align:center;
+    color:#888;
+    font-size:0.9rem;
+    padding:30px 0 50px;
+  }
+
+  /* 浮動按鈕容器 */
+  .floating-wrap {
+    position:fixed;
+    right:16px;
+    bottom:16px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:200;
+  }
+  .float-btn {
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:transparent !important;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 16px rgba(0,0,0,0.12);
+  }
+  .float-btn img {
+    display:block;
+    width:34px;
+    height:34px;
+    object-fit:contain;
+  }
+  .float-btn.call span {
+    display:inline-block;
+    font-size:26px;
+    line-height:1;
+    color:#001c44;
   }
 </style>
 </head>
@@ -229,22 +231,22 @@
     <div class="faq-item"><div class="faq-header">可申貸金額範圍？<span class="faq-arrow">▼</span></div><div class="faq-content">最低 3 萬起，最高依個人信用評分決定。</div></div>
 
   </section>
-
-  <!-- 公司資訊（地址 / 核准設立 / 營業項目已移除） -->
-  <section class="company-info">
-    <h3>公司資訊</h3>
-    <p>公司名稱：萬通租賃有限公司</p>
-    <p>統一編號：60513090</p>
-    <p>公司電話：0901-067-728</p>
-
-    <div class="legal-note">
-      本公司依法登記成立，並依相關法令經營。<br>
-      所有貸款／租賃方案皆依實際審核為準。
-    </div>
-  </section>
-
-  <footer>© 2025 Wantong. All Rights Reserved.</footer>
 </div>
+
+<!-- === 公司資訊已移至底部 === -->
+<section class="company-info">
+  <h3>公司資訊</h3>
+  <p>公司名稱：萬通租賃有限公司</p>
+  <p>統一編號：60513090</p>
+  <p>公司電話：0901-067-728</p>
+
+  <div class="legal-note">
+    本公司依法登記成立，並依相關法令經營。<br>
+    所有貸款／租賃方案皆依實際審核為準。
+  </div>
+</section>
+
+<footer>© 2025 Wantong. All Rights Reserved.</footer>
 
 <!-- 浮動圓形按鈕 -->
 <div class="floating-wrap">
