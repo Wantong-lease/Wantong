@@ -8,12 +8,11 @@
 <style>
   body { margin:0; font-family:"Microsoft JhengHei",sans-serif; background:#f6fbff; color:#222; }
 
-  /* ====== Header ====== */
   header {
     background:white;
     border-bottom:1px solid #e5eaf0;
     padding:6px 0;
-    position:sticky;top:0;z-index:50;
+    position:sticky;top:0;z-index:30;
   }
   .nav {
     max-width:860px;
@@ -23,63 +22,12 @@
     align-items:center;
     padding:0 14px;
   }
+
   .brand img { height:95px; width:auto; }
   .brand { display:flex; align-items:center; }
 
   nav a { margin-left:18px; text-decoration:none; color:#6b7585; font-weight:600; }
   nav a:hover { color:#2f9fff; }
-
-  /* ====== 漢堡選單 ====== */
-  .hamburger {
-    display:none;
-    width:32px;
-    height:26px;
-    flex-direction:column;
-    justify-content:space-between;
-    cursor:pointer;
-  }
-  .hamburger span {
-    display:block;
-    height:4px;
-    background:#003366;
-    border-radius:3px;
-    transition:0.3s;
-  }
-
-  /* ====== 全螢幕選單 ====== */
-  .mobile-menu {
-    position:fixed;
-    top:0; left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,20,60,0.96);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:32px;
-    transform:translateY(-100%);
-    transition:0.45s ease;
-    z-index:100;
-  }
-
-  .mobile-menu a {
-    color:white;
-    font-size:1.6rem;
-    font-weight:700;
-    text-decoration:none;
-  }
-
-  .mobile-menu.open {
-    transform:translateY(0);
-  }
-
-  /* 手機版切換 */
-  @media (max-width:600px) {
-    nav { display:none; }
-    .hamburger { display:flex; }
-    .brand img { height:70px !important; }
-  }
 
   .container { max-width:860px; margin:auto; padding:10px 14px; }
 
@@ -99,12 +47,11 @@
   }
 
   h2 { margin-top:0; }
-
+  .calc-group { margin-bottom:16px; }
   input {
     width:100%; padding:12px;
     border:1px solid #ccc; border-radius:6px;
     font-size:1rem;
-    margin-bottom:12px;
   }
 
   button {
@@ -128,7 +75,7 @@
 
   footer { text-align:center; color:#888; font-size:0.9rem; padding:40px 0; }
 
-  /* ====== 浮動按鈕 ====== */
+  /* 浮動按鈕容器 */
   .floating-wrap {
     position:fixed;
     right:16px;
@@ -137,6 +84,12 @@
     flex-direction:column;
     gap:12px;
     z-index:200;
+  }
+
+  .floating-wrap a {
+    text-decoration: none !important;
+    outline: none !important;
+    border: none !important;
   }
   .float-btn {
     width:58px;
@@ -149,37 +102,97 @@
     box-shadow:0 4px 16px rgba(0,0,0,0.12);
   }
   .float-btn img {
+    display:block;
     width:34px;
     height:34px;
+    object-fit:contain;
   }
   .float-btn.call span {
-    font-size:26px;color:#001c44;
+    display:inline-block;
+    font-size:26px;
+    line-height:1;
+    color:#001c44;
   }
 
-  /* ====== FAQ ====== */
-  .faq-item { border:1px solid #e5edf7; border-radius:10px; margin-bottom:12px; overflow:hidden; }
+  /* FAQ */
+  .faq-item {
+    border: 1px solid #e5edf7;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    background: #ffffff;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
   .faq-header {
-    padding:16px 18px; cursor:pointer; font-weight:700; color:#003366;
-    display:flex; justify-content:space-between; align-items:center;
+    padding: 16px 18px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #003366;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  .faq-header:hover { background:#f3f8ff; }
+  .faq-header:hover { background: #f3f8ff; }
+  .faq-arrow { transition: 0.3s; }
   .faq-content {
-    max-height:0; overflow:hidden; padding:0 18px; color:#444;
-    transition:max-height .35s ease, padding .3s;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 18px;
+    color: #444;
+    line-height: 1.6;
+    transition: max-height 0.35s ease, padding 0.3s;
   }
+  .faq-item.active { box-shadow:0 4px 16px rgba(0,0,0,0.08); }
   .faq-item.active .faq-content { padding:14px 18px 18px; }
-  .faq-item.active .faq-arrow { transform:rotate(180deg); }
+  .faq-item.active .faq-arrow { transform: rotate(180deg); }
 
-  /* ====== 公司資訊 ====== */
-  .company-info {
-    background:white;
-    padding:22px;
-    border-radius:10px;
-    border:1px solid #e8eff5;
-    margin-top:30px;
+  @media (max-width:600px) {
+    .brand img { height:70px !important; }
   }
-  .company-info h3 {
-    margin-top:0; color:#003366; font-size:1.3rem; font-weight:800;
+
+  /* ————————————————
+     高質感金融機構風「公司資訊」
+     ———————————————— */
+  .company-info-wrap {
+    width: 100%;
+    background:#e9f1ff;
+    padding: 40px 0;
+    margin-top: 40px;
+  }
+
+  .company-info-card {
+    max-width: 860px;
+    margin: auto;
+    background: white;
+    padding: 26px 30px;
+    border-radius: 12px;
+    border: 1px solid #d6e2f3;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    color: #333;
+    line-height: 1.7;
+  }
+
+  .company-info-card h3 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    color: #003366;
+    font-size: 1.35rem;
+    font-weight: 800;
+  }
+
+  .company-info-card p {
+    margin: 6px 0;
+    font-size: 1rem;
+    color:#2d3a4d;
+  }
+
+  .company-info-card .legal-note {
+    margin-top: 16px;
+    background:#f6f9ff;
+    padding:14px 16px;
+    border-radius:8px;
+    font-size:0.92rem;
+    color:#4b5566;
   }
 
 </style>
@@ -187,97 +200,88 @@
 
 <body>
 
-<!-- ====== Header ====== -->
 <header>
   <div class="nav">
     <a class="brand" href="#"><img src="logo.png" alt="Wantong Logo"></a>
-
-    <!-- 桌面版選單 -->
     <nav>
       <a href="#calc">試算器</a>
       <a href="#faq">FAQ</a>
-      <a href="#company">公司資訊</a>
     </nav>
-
-    <!-- 手機漢堡 -->
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
   </div>
 </header>
 
-<!-- ====== 手機全螢幕選單 ====== -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#calc" onclick="toggleMenu()">試算器</a>
-  <a href="#faq" onclick="toggleMenu()">FAQ</a>
-  <a href="#company" onclick="toggleMenu()">公司資訊</a>
-</div>
-
 <div class="container">
-
   <div class="banner"><img src="banner.png" alt="banner"></div>
 
-  <!-- ====== 試算器 ====== -->
   <section id="calc">
     <h2>Wantong 個人信用貸試算</h2>
     <p>年利率固定 <strong>16%</strong>、手續費 <strong>6%</strong></p>
 
-    <input id="loanAmount" type="number" placeholder="請輸入金額，例如 100000">
-    <input id="months" type="number" placeholder="例如 12、24、36">
+    <div class="calc-group">
+      <label>借款金額（NT$）</label>
+      <input id="loanAmount" type="number" placeholder="請輸入金額，例如 100000">
+    </div>
+
+    <div class="calc-group">
+      <label>期數（月）</label>
+      <input id="months" type="number" placeholder="例如 12、24、36">
+    </div>
+
     <button onclick="calculate()">開始試算</button>
 
     <div id="result" class="result-box" style="display:none; margin-top:20px;"></div>
   </section>
 
-  <!-- ====== FAQ ====== -->
   <section id="faq">
     <h2>常見問題</h2>
-
     <div class="faq-item"><div class="faq-header">利率是多少？<span class="faq-arrow">▼</span></div><div class="faq-content">固定年利率 16%，手續費 6%。</div></div>
-
-    <div class="faq-item"><div class="faq-header">撥款時間？<span class="faq-arrow">▼</span></div><div class="faq-content">文件齊全後最快 1 天撥款。</div></div>
-
-    <div class="faq-item"><div class="faq-header">是否查聯徵？<span class="faq-arrow">▼</span></div><div class="faq-content">會，依審核需求進行。</div></div>
-
-    <div class="faq-item"><div class="faq-header">可以提前結清嗎？<span class="faq-arrow">▼</span></div><div class="faq-content">可以，未來利息將扣除。</div></div>
+    <div class="faq-item"><div class="faq-header">撥款時間？<span class="faq-arrow">▼</span></div><div class="faq-content">文件齊全並核准後，最快 1 天即可撥款。</div></div>
+    <div class="faq-item"><div class="faq-header">申請需要哪些文件？<span class="faq-arrow">▼</span></div><div class="faq-content">身分證明、薪轉/收入證明、金融資料即可。</div></div>
+    <div class="faq-item"><div class="faq-header">需要保人嗎？<span class="faq-arrow">▼</span></div><div class="faq-content">不需要保人，單獨申請即可審核。</div></div>
+    <div class="faq-item"><div class="faq-header">是否會查聯徵？<span class="faq-arrow">▼</span></div><div class="faq-content">會進行聯徵評分，以確認信用狀況與還款能力。</div></div>
+    <div class="faq-item"><div class="faq-header">可以提前結清嗎？<span class="faq-arrow">▼</span></div><div class="faq-content">可以，會重新計算尚未產生的利息。</div></div>
+    <div class="faq-item"><div class="faq-header">可申貸金額範圍？<span class="faq-arrow">▼</span></div><div class="faq-content">最低 3 萬起，最高依個人信用評分決定。</div></div>
   </section>
 
-  <!-- ====== 公司資訊 ====== -->
-  <section id="company" class="company-info">
+</div>
+
+<!-- ⭐ 高質感金融風公司資訊（已取代舊版本） -->
+<section class="company-info-wrap">
+  <div class="company-info-card">
     <h3>公司資訊</h3>
+
     <p>公司名稱：萬通租賃有限公司</p>
     <p>統一編號：60513090</p>
     <p>公司電話：0901-067-728</p>
+
     <div class="legal-note">
-      本公司依法登記並依相關法令經營。<br>
-      貸款方案依實際審核為準。
+      本公司依法登記成立，並依相關法令經營。<br>
+      所有貸款／租賃方案皆依實際審核為準。
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>© 2025 Wantong. All Rights Reserved.</footer>
-</div>
+<footer>© 2025 Wantong. All Rights Reserved.</footer>
 
-<!-- ====== 浮動按鈕 ====== -->
+<!-- 浮動圓形按鈕 -->
 <div class="floating-wrap">
-  <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="float-btn">
+  <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="float-btn" aria-label="LINE 立即申請">
     <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="LINE">
   </a>
-  <a href="tel:0966857279" class="float-btn call">
+
+  <a href="tel:0966857279" class="float-btn call" aria-label="立即來電">
     <span>📞</span>
   </a>
 </div>
 
 <script>
-function toggleMenu() {
-  document.getElementById("mobileMenu").classList.toggle("open");
-}
-
 function calculate() {
   const amount = Number(document.getElementById("loanAmount").value);
   const months = Number(document.getElementById("months").value);
-  if (!amount || !months) return alert("請輸入金額與期數！");
   const rate = 0.16 / 12;
   const fee = amount * 0.06;
+
+  if (!amount || !months) { alert("請輸入金額與期數！"); return; }
 
   const monthly = amount * rate / (1 - Math.pow(1 + rate, -months));
   const total = monthly * months + fee;
@@ -288,12 +292,24 @@ function calculate() {
     "總費用（含手續費）：" + Math.round(total).toLocaleString() + " 元";
 }
 
-/* FAQ toggle */
-document.querySelectorAll(".faq-item").forEach(item => {
-  item.querySelector(".faq-header").addEventListener("click", () => {
+/* FAQ 展開 */
+const faqItems = document.querySelectorAll(".faq-item");
+faqItems.forEach(item => {
+  const header = item.querySelector(".faq-header");
+  header.addEventListener("click", () => {
+    faqItems.forEach(i => {
+      if (i !== item) {
+        i.classList.remove("active");
+        i.querySelector(".faq-content").style.maxHeight = null;
+      }
+    });
     item.classList.toggle("active");
     const content = item.querySelector(".faq-content");
-    content.style.maxHeight = item.classList.contains("active") ? content.scrollHeight + "px" : null;
+    if (item.classList.contains("active")) {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } else {
+      content.style.maxHeight = null;
+    }
   });
 });
 </script>
