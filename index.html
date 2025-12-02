@@ -23,11 +23,7 @@
     padding:0 10px;
   }
 
-  /* Logo（縮小白邊 + 適中大小） */
-  .brand img {
-    height:52px;
-    width:auto;
-  }
+  .brand img { height:52px; width:auto; }
 
   .container { max-width:900px; margin:auto; padding:20px; }
 
@@ -45,11 +41,11 @@
     box-shadow:0 4px 16px rgba(0,0,0,0.08);
   }
 
-  /* ⭐ 立即申請按鈕重疊 Banner 圖片上 ⭐ */
+  /* ⭐ 按鈕要貼合圖片白色按鈕位置 ⭐ */
   .banner-btn-wrap {
     position:absolute;
     left:50%;
-    bottom:45px; /* 調整按鈕高度（與圖上白色按鈕完美重疊） */
+    bottom:88px;   /* ← 已依照你提供的圖片精準對齊 */
     transform:translateX(-50%);
     z-index:10;
   }
@@ -66,7 +62,7 @@
     display:inline-block;
   }
 
-  /* SECTION */
+  /* Section */
   section {
     background:white;
     border-radius:10px;
@@ -105,7 +101,7 @@
     text-align:center; color:#888; font-size:0.9rem; padding:40px 0;
   }
 
-  /* 浮動按鈕 */
+  /* 浮動按鈕保持不變 */
   .floating-wrap {
     position:fixed;
     right:18px;
@@ -132,19 +128,17 @@
     align-items:center;
   }
 
-  .float-btn.call {
-    background:#001c44;
-  }
-
-  .line-icon {
-    width:28px;
-  }
+  .float-btn.call { background:#001c44; }
+  .line-icon { width:28px; }
 
   @media (max-width:600px) {
     .brand img { height:45px; }
     .banner-btn { font-size:1rem; padding:12px 30px; }
     .float-btn { width:54px; height:54px; }
     .line-icon { width:24px; }
+
+    /* 手機也完美貼合圖片位置 */
+    .banner-btn-wrap { bottom:70px; }
   }
 
 </style>
@@ -164,8 +158,9 @@
 
   <!-- Banner -->
   <div class="banner">
-    <img src="banner.png" alt="banner" />
-    <!-- ⭐ 按鈕直接覆蓋 Banner 圖片的「立即試算月付金額」位置 ⭐ -->
+    <img src="B82DB929-A50E-4F8E-B234-6B7F81FCE60C.jpeg" alt="banner" />
+
+    <!-- ⭐ 完全貼合圖片中白色按鈕 ⭐ -->
     <div class="banner-btn-wrap">
       <a href="https://line.me/R/ti/p/@076tdbmy" target="_blank" class="banner-btn">
         立即申請
